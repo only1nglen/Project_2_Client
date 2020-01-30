@@ -40,9 +40,33 @@ const signOut = function () {
   })
 }
 
+const addDrink = function (data) {
+  console.log(data, 'is data')
+  return $.ajax({
+    url: config.apiUrl + '/drinks',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const showDrink = function () {
+  return $.ajax({
+    url: config.apiUrl + '/drinks' + store.drinks,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  addDrink,
+  showDrink
 }
