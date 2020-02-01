@@ -1,1 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
+
+.content {
+  @include make-row;
+
+  &:empty {
+    &::before {
+      color: lighten($info, 25%);
+      font-size: 8vh;
+      line-height: .85;
+      text-align: center;
+      width: 95%;
+    }
+  }
+}

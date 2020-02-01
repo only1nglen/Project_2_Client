@@ -21,7 +21,7 @@
         <legend>Sign-Up!</legend>
         <input class="field" name="credentials[email]" type='email' placeholder='Email' />
         <input class="field" name="credentials[password]" type='password' placeholder='Password' />
-        <input class="field" name="credentials[password_confirmation]" type='password' placeholder='Password Confirmation' />
+        <input class="field" name="credentials[password_confirmation]" type='password' placeholder='Confirm Password' />
         <input class="field" name="credentials[first_name]" type='text' placeholder='First Name' />
         <input class="field" name="credentials[last_name]" type='text' placeholder='Last Name' />
         <input type='submit' value='Sign-Up!' />
@@ -56,10 +56,10 @@
   </nav>
 
   <div>
-    <form id='show-drinks'>
+    <form id='get-drinks'>
       <fieldset>
         <legend>My Drinks!</legend>
-        <input type='submit' value='Show me!' />
+        <input type='submit' value='Get Drinks!' />
       </fieldset>
     </form>
 
@@ -72,6 +72,18 @@
         <input type='submit' value='Drunk!' />
       </fieldset>
     </form>
+
+    <form id='patch-drink'>
+      <fieldset>
+        <legend>Update Drink!</legend>
+        <input class="field" name="drink[name]" type='text' placeholder='Drink Name' />
+        <input class="field" name="drink[shop_name]" type='text' placeholder='Shop Name' />
+        <input class="field" name="drink[date]" type='date' placeholder='Date' />
+        <input type='submit' value='Update!' />
+      </fieldset>
+    </form>
+
+    <div class="content"></div>
   </div>
 
 </body>

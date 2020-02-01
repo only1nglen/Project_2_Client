@@ -3,6 +3,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('./../../../lib/get-form-fields')
+const store = require('./../store.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -43,17 +44,44 @@ const onAddDrink = function (event) {
   const form = event.target
   const data = getFormFields(form)
   api.addDrink(data)
-    .then(ui.addDrinkSuccess)
+    .then(() => onGetDrink(event))
     .catch(ui.addDrinkFailure)
 }
 
-const onShowDrink = function (event) {
+const onGetDrink = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  api.showDrink(data)
-    .then(ui.showDrinkSuccess)
-    .catch(ui.showDrinkFailure)
+  api.getDrink(data)
+    .then(ui.getDrinkSuccess)
+    .catch(ui.getDrinkFailure)
+}
+
+const onRemoveDrink = function (event) {
+  event.preventDefault()
+  const id = $(event.target).data('id')
+  console.log(event, 'is remove event')
+  console.log(id, 'is remove id')
+  api.removeDrink(id)
+    .then(() => onGetDrink(event))
+    .catch(ui.removeDrinkFailure)
+}
+
+const onUpdateDrink = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data, 'is data')
+  api.updateDrink(data)
+    .then(ui.updateDrinkSuccess)
+    .catch(ui.updateDrinkFailure)
+}
+
+const onEdit = function (event) {
+  $('#patch-drink').show()
+  console.log(event, 'is event')
+  store.drinkId = $(event.target).data('id')
+  console.log(store.drinkId, 'is drinkId')
 }
 
 const addHandlers = function () {
@@ -62,7 +90,10 @@ const addHandlers = function () {
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
   $('#drunk').on('submit', onAddDrink)
-  $('#show-drinks').on('submit', onShowDrink)
+  $('#get-drinks').on('submit', onGetDrink)
+  $('.content').on('click', '.remove', onRemoveDrink)
+  $('.content').on('click', '.update', onEdit)
+  $('#patch-drink').on('submit', onUpdateDrink)
 }
 
 module.exports = {
@@ -71,5 +102,6 @@ module.exports = {
   onSignIn,
   onSignOut,
   onAddDrink,
-  onShowDrink
+  onGetDrink,
+  onRemoveDrink
 }

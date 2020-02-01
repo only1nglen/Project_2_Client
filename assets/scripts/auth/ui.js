@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./../store.js')
+const showDrinksTemplate = require('./../templates/drink-listing.handlebars')
 
 const signUpSuccess = function () {
   $('#nav-message').text('Successfully Signed Up!')
@@ -22,7 +23,7 @@ const signInFailure = function () {
   $('#nav-message').text('Failed to Sign In!')
 }
 
-const changePasswordSuccess = function (response) {
+const changePasswordSuccess = function () {
   $('#nav-message').text('Password Successfully Changed!')
   $('#change-password')[0].reset('')
 }
@@ -48,14 +49,30 @@ const addDrinkFailure = function () {
   $('#nav-message').text('Add Drink Fail!')
 }
 
-const showDrinkSuccess = function (response) {
+const getDrinkSuccess = function (response) {
   $('#nav-message').text('Your Drinks!')
-  console.log(response, 'is response')
-  store.drinks = store.response
+  const showDrinksHtml = showDrinksTemplate({ drinks: response.drinks })
+  $('.content').html(showDrinksHtml)
 }
 
-const showDrinkFailure = function () {
+const getDrinkFailure = function () {
   $('#nav-message').text('You have no Drinks!')
+}
+
+// const removeDrinkSuccess = function () {
+//   $('#nav-message').text('Deleted a Drink!')
+// }
+
+const removeDrinkFailure = function () {
+  $('#nav-message').text('Could not Dump your Drink out!')
+}
+
+const updateDrinkSuccess = function () {
+  $('#nav-message').text('Update Successful')
+}
+
+const updateDrinkFailure = function () {
+  $('#nav-message').text('Could not edit your Drink!')
 }
 
 module.exports = {
@@ -69,6 +86,10 @@ module.exports = {
   signOutFailure,
   addDrinkSuccess,
   addDrinkFailure,
-  showDrinkSuccess,
-  showDrinkFailure
+  getDrinkSuccess,
+  getDrinkFailure,
+  // removeDrinkSuccess,
+  removeDrinkFailure,
+  updateDrinkSuccess,
+  updateDrinkFailure
 }

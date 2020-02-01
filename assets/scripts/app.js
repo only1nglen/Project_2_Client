@@ -9,6 +9,7 @@ const authEvents = require('./auth/events.js')
 // require('./example')
 
 $(() => {
+  $('#patch-drink').hide()
   // your JS code goes here
   authEvents.addHandlers()
 })
