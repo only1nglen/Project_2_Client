@@ -10,6 +10,10 @@ const authEvents = require('./auth/events.js')
 
 $(() => {
   $('#patch-drink').hide()
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('.userface').hide()
+  $('#drunk').hide()
   // your JS code goes here
   authEvents.addHandlers()
 })

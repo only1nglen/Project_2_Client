@@ -15,7 +15,13 @@ const signUpFailure = function () {
 const signInSuccess = function (response) {
   $('#nav-message').text('Successfully Signed In!')
   store.user = response.user
+  $('#sign-up').hide()
+  $('#sign-in').hide()
+  $('#drunk').hide()
   $('#sign-in')[0].reset('')
+  $('#change-password').show()
+  $('#sign-out').show()
+  $('.userface').show()
   console.log(response)
 }
 
@@ -34,6 +40,14 @@ const changePasswordFailure = function () {
 
 const signOutSuccess = function (response) {
   $('#nav-message').text('Successfully Signed Out')
+  $('#sign-up').show()
+  $('#sign-in').show()
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('#drunk').show()
+  $('.userface').hide()
+  $('#patch-drink').hide()
+  $('.content').empty()
 }
 
 const signOutFailure = function () {
@@ -43,6 +57,7 @@ const signOutFailure = function () {
 const addDrinkSuccess = function () {
   $('#nav-message').text('Drink Added!')
   $('#drunk')[0].reset('')
+  // $('#drunk').empty()
 }
 
 const addDrinkFailure = function () {
@@ -59,15 +74,16 @@ const getDrinkFailure = function () {
   $('#nav-message').text('You have no Drinks!')
 }
 
-// const removeDrinkSuccess = function () {
-//   $('#nav-message').text('Deleted a Drink!')
-// }
+const removeDrinkSuccess = function () {
+  $('#nav-message').text('Deleted a Drink!')
+}
 
 const removeDrinkFailure = function () {
   $('#nav-message').text('Could not Dump your Drink out!')
 }
 
 const updateDrinkSuccess = function () {
+  $('#patch-drink').hide()
   $('#nav-message').text('Update Successful')
 }
 
@@ -88,7 +104,7 @@ module.exports = {
   addDrinkFailure,
   getDrinkSuccess,
   getDrinkFailure,
-  // removeDrinkSuccess,
+  removeDrinkSuccess,
   removeDrinkFailure,
   updateDrinkSuccess,
   updateDrinkFailure

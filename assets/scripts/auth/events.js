@@ -48,6 +48,11 @@ const onAddDrink = function (event) {
     .catch(ui.addDrinkFailure)
 }
 
+const addADrink = function (event) {
+  event.preventDefault()
+  $('#drunk').show()
+}
+
 const onGetDrink = function (event) {
   event.preventDefault()
   const form = event.target
@@ -60,9 +65,10 @@ const onGetDrink = function (event) {
 const onRemoveDrink = function (event) {
   event.preventDefault()
   const id = $(event.target).data('id')
-  console.log(event, 'is remove event')
-  console.log(id, 'is remove id')
+  // console.log(event, 'is remove event')
+  // console.log(id, 'is remove id')
   api.removeDrink(id)
+    // .then(() => onGetDrink(event))
     .then(() => onGetDrink(event))
     .catch(ui.removeDrinkFailure)
 }
@@ -71,7 +77,7 @@ const onUpdateDrink = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  console.log(data, 'is data')
+  // console.log(data, 'is data')
   api.updateDrink(data)
     .then(ui.updateDrinkSuccess)
     .catch(ui.updateDrinkFailure)
@@ -79,9 +85,10 @@ const onUpdateDrink = function (event) {
 
 const onEdit = function (event) {
   $('#patch-drink').show()
-  console.log(event, 'is event')
+  // console.log(event, 'is event')
+  // store.drinkId is used in api.js
   store.drinkId = $(event.target).data('id')
-  console.log(store.drinkId, 'is drinkId')
+  // console.log(store.drinkId, 'is drinkId')
 }
 
 const addHandlers = function () {
@@ -94,6 +101,7 @@ const addHandlers = function () {
   $('.content').on('click', '.remove', onRemoveDrink)
   $('.content').on('click', '.update', onEdit)
   $('#patch-drink').on('submit', onUpdateDrink)
+  $('.userface').on('click', '#add', addADrink)
 }
 
 module.exports = {
