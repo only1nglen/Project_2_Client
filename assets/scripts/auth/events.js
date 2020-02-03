@@ -63,6 +63,10 @@ const onGetDrink = function (event) {
     .catch(ui.getDrinkFailure)
 }
 
+const onClearList = function () {
+  $('.content').text('')
+}
+
 const onRemoveDrink = function (event) {
   event.preventDefault()
   const id = $(event.target).data('id')
@@ -101,6 +105,7 @@ const addHandlers = function () {
   $('#sign-out').on('submit', onSignOut)
   $('#add-drink').on('submit', onAddDrink)
   $('#get-drinks').on('submit', onGetDrink)
+  $('.clear-list').on('click', onClearList)
   $('.content').on('click', '.remove', onRemoveDrink)
   $('.content').on('click', '.update', onEdit)
   $('#patch-drink').on('submit', onUpdateDrink)
@@ -114,5 +119,6 @@ module.exports = {
   onSignOut,
   onAddDrink,
   onGetDrink,
-  onRemoveDrink
+  onRemoveDrink,
+  onClearList
 }
