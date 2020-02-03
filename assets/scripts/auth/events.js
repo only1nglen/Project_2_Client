@@ -44,13 +44,14 @@ const onAddDrink = function (event) {
   const form = event.target
   const data = getFormFields(form)
   api.addDrink(data)
-    .then(() => onGetDrink(event))
+    // .then(() => onGetDrink(event))
+    .then(ui.addDrinkSuccess)
     .catch(ui.addDrinkFailure)
 }
 
 const addADrink = function (event) {
   event.preventDefault()
-  $('#drunk').show()
+  $('#add-drink').show()
 }
 
 const onGetDrink = function (event) {
@@ -69,7 +70,7 @@ const onRemoveDrink = function (event) {
   // console.log(id, 'is remove id')
   api.removeDrink(id)
     // .then(() => onGetDrink(event))
-    .then(() => onGetDrink(event))
+    .then(ui.removeDrinkSuccess)
     .catch(ui.removeDrinkFailure)
 }
 
@@ -88,6 +89,8 @@ const onEdit = function (event) {
   // console.log(event, 'is event')
   // store.drinkId is used in api.js
   store.drinkId = $(event.target).data('id')
+  // store.drinkName = $(event.target).data('name')
+  // console.log(store.drinkName, 'drink name')
   // console.log(store.drinkId, 'is drinkId')
 }
 
@@ -96,7 +99,7 @@ const addHandlers = function () {
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
-  $('#drunk').on('submit', onAddDrink)
+  $('#add-drink').on('submit', onAddDrink)
   $('#get-drinks').on('submit', onGetDrink)
   $('.content').on('click', '.remove', onRemoveDrink)
   $('.content').on('click', '.update', onEdit)

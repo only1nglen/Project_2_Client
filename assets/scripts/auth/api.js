@@ -72,7 +72,7 @@ const removeDrink = function (id) {
   })
 }
 
-const updateDrink = function (data, id) {
+const updateDrink = function (data) {
   return $.ajax({
     url: config.apiUrl + '/drinks/' + store.drinkId,
     method: 'PATCH',

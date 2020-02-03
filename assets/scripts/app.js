@@ -13,7 +13,8 @@ $(() => {
   $('#change-password').hide()
   $('#sign-out').hide()
   $('.userface').hide()
-  $('#drunk').hide()
+  $('#add-drink').hide()
+  $('.clear-list').hide()
   // your JS code goes here
   authEvents.addHandlers()
 })

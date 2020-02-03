@@ -10,6 +10,7 @@ const signUpSuccess = function () {
 
 const signUpFailure = function () {
   $('#nav-message').text('Failed to Sign Up!')
+  $('#sign-up')[0].reset('')
 }
 
 const signInSuccess = function (response) {
@@ -17,7 +18,7 @@ const signInSuccess = function (response) {
   store.user = response.user
   $('#sign-up').hide()
   $('#sign-in').hide()
-  $('#drunk').hide()
+  $('#add-drink').hide()
   $('#sign-in')[0].reset('')
   $('#change-password').show()
   $('#sign-out').show()
@@ -27,6 +28,7 @@ const signInSuccess = function (response) {
 
 const signInFailure = function () {
   $('#nav-message').text('Failed to Sign In!')
+  $('#sign-in')[0].reset('')
 }
 
 const changePasswordSuccess = function () {
@@ -42,9 +44,10 @@ const signOutSuccess = function (response) {
   $('#nav-message').text('Successfully Signed Out')
   $('#sign-up').show()
   $('#sign-in').show()
+  $('.clear-list').hide()
   $('#change-password').hide()
   $('#sign-out').hide()
-  $('#drunk').show()
+  $('#add-drink').show()
   $('.userface').hide()
   $('#patch-drink').hide()
   $('.content').empty()
@@ -56,18 +59,19 @@ const signOutFailure = function () {
 
 const addDrinkSuccess = function () {
   $('#nav-message').text('Drink Added!')
-  $('#drunk')[0].reset('')
-  // $('#drunk').empty()
+  $('#add-drink')[0].reset('')
 }
 
 const addDrinkFailure = function () {
   $('#nav-message').text('Add Drink Fail!')
 }
 
-const getDrinkSuccess = function (response) {
+const getDrinkSuccess = function (data) {
+  $('.clear-list').show()
   $('#nav-message').text('Your Drinks!')
-  const showDrinksHtml = showDrinksTemplate({ drinks: response.drinks })
+  const showDrinksHtml = showDrinksTemplate({ drinks: data.drinks })
   $('.content').html(showDrinksHtml)
+  console.log(data.drinks, 'is repsonse')
 }
 
 const getDrinkFailure = function () {
@@ -75,16 +79,17 @@ const getDrinkFailure = function () {
 }
 
 const removeDrinkSuccess = function () {
-  $('#nav-message').text('Deleted a Drink!')
+  $('#nav-message').text('Dumped a Drink!')
 }
 
 const removeDrinkFailure = function () {
   $('#nav-message').text('Could not Dump your Drink out!')
 }
 
-const updateDrinkSuccess = function () {
+const updateDrinkSuccess = function (response) {
   $('#patch-drink').hide()
   $('#nav-message').text('Update Successful')
+  $('#patch-drink')[0].reset('')
 }
 
 const updateDrinkFailure = function () {

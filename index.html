@@ -15,52 +15,74 @@
 
 <body>
 
+  <!-- <nav class="navbar fixed-top navbar-dark bg-primary"> -->
   <nav>
-    <form id='sign-up'>
-      <fieldset>
-        <legend>Sign-Up!</legend>
-        <input class="field" name="credentials[email]" type='email' placeholder='Email' required/>
-        <input class="field" name="credentials[password]" type='password' placeholder='Password' required/>
-        <input class="field" name="credentials[password_confirmation]" type='password' placeholder='Confirm Password' required/>
-        <input class="field" name="credentials[first_name]" type='text' placeholder='First Name' required />
-        <input class="field" name="credentials[last_name]" type='text' placeholder='Last Name' required />
-        <input type='submit' value='Sign-Up!' />
-      </fieldset>
-    </form>
+    <div class='container'>
+      <div class='row'>
+        <div class="col-6">
+          <form id='sign-up'>
+            <fieldset>
+              <legend>Sign-Up!</legend>
+              <input class="field" name="credentials[email]" type='email' placeholder='Email' required />
+              <input class="field" name="credentials[password]" type='password' placeholder='Password' required />
+              <input class="field" name="credentials[password_confirmation]" type='password' placeholder='Confirm Password' required />
+              <br>
+              <input class="field" name="credentials[first_name]" type='text' placeholder='First Name' required />
+              <input class="field" name="credentials[last_name]" type='text' placeholder='Last Name' required />
+              <input type='submit' value='Sign-Up!' />
+            </fieldset>
+          </form>
+        </div>
 
-    <form id='sign-in'>
-      <fieldset>
-        <legend>Sign-in!</legend>
-        <input class="field" name="credentials[email]" type='email' placeholder='Email' />
-        <input class="field" name="credentials[password]" type='password' placeholder='Password' />
-        <input type='submit' value='Sign-in!' />
-      </fieldset>
-    </form>
+        <div class="col-6">
+          <form id='sign-in'>
+            <fieldset>
+              <legend>Sign-in!</legend>
+              <input class="field" name="credentials[email]" type='email' placeholder='Email' />
+              <input class="field" name="credentials[password]" type='password' placeholder='Password' />
+              <input type='submit' value='Sign-in!' />
+            </fieldset>
+          </form>
+        </div>
 
-    <form id='change-password'>
-      <fieldset>
-        <legend>Change Password</legend>
-        <input class="field" name="passwords[old]" type='password' placeholder='Old Password' />
-        <input class="field" name="passwords[new]" type='password' placeholder='New Password' />
-        <input type='submit' value='Change Password!' />
-      </fieldset>
-    </form>
+        <div class="col-4">
+          <form id='change-password'>
+            <fieldset>
+              <legend>Change Password</legend>
+              <input class="field" name="passwords[old]" type='password' placeholder='Old Password' />
+              <input class="field" name="passwords[new]" type='password' placeholder='New Password' />
+              <input type='submit' value='Change Password!' />
+            </fieldset>
+          </form>
+        </div>
 
-    <form id='sign-out'>
-      <fieldset>
-        <legend>Sign Out!</legend>
-        <input type='submit' value='Sign Out!' />
-      </fieldset>
-    </form>
-    <p id="nav-message"></p>
+        <div class="col-4">
+          <form id='sign-out'>
+            <fieldset>
+              <legend>Sign Out!</legend>
+              <input type='submit' value='Sign Out!' />
+            </fieldset>
+          </form>
+        </div>
+
+      <div class="col-12 display-message">
+        <p id="nav-message"></p>
+      </div>
+
+      </div>
+    </div>
   </nav>
 
-  <div class="userface">
+<div class='container'>
+  <div class='userface'>
     <form id='get-drinks'>
       <fieldset>
-        <input type='submit' value='Get Drinks!' />
+        <input type='submit' onclick="$('.content').show()" value='Get Drinks!' />
+        <input type='button' class='clear-list' onclick="$('.content').hide()" value='Clear Drinks!' />
       </fieldset>
     </form>
+
+    <br>
 
     <form id='add'>
       <fieldset>
@@ -68,31 +90,37 @@
       </fieldset>
     </form>
 
-  <form id='drunk'>
-    <fieldset>
-      <legend>Add Drink!</legend>
-      <input class="field" name="drink[name]" type='text' placeholder='Drink Name' required />
-      <input class="field" name="drink[shop_name]" type='text' placeholder='Shop Name' required />
-      <input class="field" name="drink[date]" type='date' placeholder='Date' required />
-      <input type='submit' value='Drunk!' />
-      <input type='button' onclick="$('#drunk').hide()" value='Cancel!' />
-    </fieldset>
-  </form>
+    <br>
 
+    <form id='add-drink'>
+      <fieldset>
+        <legend>Add Drink!</legend>
+        <input class="field" name="drink[name]" type='text' placeholder='Drink Name' required />
+        <input class="field" name="drink[shop_name]" type='text' placeholder='Shop Name' required />
+        <input class="field" name="drink[date]" type='date' placeholder='Date' required />
+        <input type='submit' value='Drank!' />
+        <input type='button' onclick="$('#add-drink').hide()" value='Cancel!' />
+      </fieldset>
+    </form>
 
-  <form id='patch-drink'>
-    <fieldset>
-      <legend>Update Drink!</legend>
-      <input class="field" name="drink[name]" type='text' placeholder='Drink Name' required />
-      <input class="field" name="drink[shop_name]" type='text' placeholder='Shop Name' required />
-      <input class="field" name="drink[date]" type='date' placeholder='Date' required />
-      <input type='submit' value='Update!' />
-      <input type='button' onclick="$('#patch-drink').hide()" value='Cancel!' />
-    </fieldset>
-  </form>
-</div>
+    <br>
+
+    <form id='patch-drink'>
+      <fieldset>
+        <legend>Update Drink!</legend>
+        <input class="field" name="drink[name]" type='text' placeholder='Drink Name' required />
+        <input class="field" name="drink[shop_name]" type='text' placeholder='Shop Name' required />
+        <input class="field" name="drink[date]" type='date' placeholder='Date' required />
+        <input type='submit' value='Update!' />
+        <input type='button' onclick="$('#patch-drink').hide()" value='Cancel!' />
+      </fieldset>
+    </form>
+  </div>
+
+  <br>
 
   <div class="content"></div>
+</div>
 
 </body>
 
