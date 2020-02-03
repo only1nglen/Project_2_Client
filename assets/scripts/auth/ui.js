@@ -23,7 +23,7 @@ const signInSuccess = function (response) {
   $('#change-password').show()
   $('#sign-out').show()
   $('.userface').show()
-  console.log(response)
+  // console.log(response)
 }
 
 const signInFailure = function () {
