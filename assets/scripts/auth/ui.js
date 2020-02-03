@@ -71,7 +71,7 @@ const getDrinkSuccess = function (data) {
   $('#nav-message').text('Your Drinks!')
   const showDrinksHtml = showDrinksTemplate({ drinks: data.drinks })
   $('.content').html(showDrinksHtml)
-  console.log(data.drinks, 'is repsonse')
+  // console.log(data.drinks, 'is repsonse')
 }
 
 const getDrinkFailure = function () {
