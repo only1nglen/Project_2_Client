@@ -54,6 +54,10 @@ const addADrink = function (event) {
   $('#add-drink').show()
 }
 
+const onClearAdd = function () {
+  $('#add-drink').hide()
+}
+
 const onGetDrink = function (event) {
   event.preventDefault()
   const form = event.target
@@ -88,6 +92,10 @@ const onUpdateDrink = function (event) {
     .catch(ui.updateDrinkFailure)
 }
 
+const onClearUpdate = function () {
+  $('#patch-drink').hide()
+}
+
 const onEdit = function (event) {
   $('#patch-drink').show()
   // console.log(event, 'is event')
@@ -106,6 +114,8 @@ const addHandlers = function () {
   $('#add-drink').on('submit', onAddDrink)
   $('#get-drinks').on('submit', onGetDrink)
   $('.clear-list').on('click', onClearList)
+  $('.clear-update').on('click', onClearUpdate)
+  $('.clear-add').on('click', onClearAdd)
   $('.content').on('click', '.remove', onRemoveDrink)
   $('.content').on('click', '.update', onEdit)
   $('#patch-drink').on('submit', onUpdateDrink)
@@ -119,6 +129,5 @@ module.exports = {
   onSignOut,
   onAddDrink,
   onGetDrink,
-  onRemoveDrink,
-  onClearList
+  onRemoveDrink
 }
