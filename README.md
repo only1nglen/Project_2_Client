@@ -6,6 +6,8 @@ I created this app with my personal experience in mind. When going to get boba d
 
 [API Repo](https://github.com/only1nglen/Project_2_API)
 
+[Deployed API](https://limitless-cove-86144.herokuapp.com/)
+
 [MyBobaStory](https://only1nglen.github.io/Project_2_Client/)
 
 ## Planning Story

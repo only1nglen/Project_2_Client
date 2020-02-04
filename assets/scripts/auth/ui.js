@@ -23,6 +23,7 @@ const signInSuccess = function (response) {
   $('#change-password').show()
   $('#sign-out').show()
   $('.userface').show()
+  $('.clear-list').hide()
   // console.log(response)
 }
 
@@ -71,6 +72,7 @@ const getDrinkSuccess = function (data) {
   $('#nav-message').text('Your Drinks!')
   const showDrinksHtml = showDrinksTemplate({ drinks: data.drinks })
   $('.content').html(showDrinksHtml)
+  $('.clear-list').show()
   // console.log(data.drinks, 'is repsonse')
 }
 

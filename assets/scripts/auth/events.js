@@ -69,6 +69,8 @@ const onGetDrink = function (event) {
 
 const onClearList = function () {
   $('.content').text('')
+  $('#nav-message').text('')
+  $('.clear-list').hide()
 }
 
 const onRemoveDrink = function (event) {
