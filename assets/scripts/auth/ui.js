@@ -68,12 +68,17 @@ const addDrinkFailure = function () {
 }
 
 const getDrinkSuccess = function (data) {
-  $('.clear-list').show()
-  $('#nav-message').text('Your Drinks!')
-  const showDrinksHtml = showDrinksTemplate({ drinks: data.drinks })
-  $('.content').html(showDrinksHtml)
-  $('.clear-list').show()
-  // console.log(data.drinks, 'is repsonse')
+  // console.log(data.drinks.length, 'is data')
+  if (data.drinks.length === 0) {
+    $('#nav-message').text('You have no drinks, Add a Drink!')
+    $('#add-drink').show()
+  } else {
+    const showDrinksHtml = showDrinksTemplate({drinks: data.drinks})
+    $('.content').html(showDrinksHtml)
+    $('.clear-list').show()
+    $('#nav-message').text('Your Drinks!')
+    // console.log(data.drinks, 'is response')
+  }
 }
 
 const getDrinkFailure = function () {

@@ -56,6 +56,7 @@ const addADrink = function (event) {
 
 const onClearAdd = function () {
   $('#add-drink').hide()
+  $('#nav-message').text('')
 }
 
 const onGetDrink = function (event) {
@@ -96,6 +97,7 @@ const onUpdateDrink = function (event) {
 
 const onClearUpdate = function () {
   $('#patch-drink').hide()
+  $('#nav-message').text('')
 }
 
 const onEdit = function (event) {
