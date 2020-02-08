@@ -60,6 +60,7 @@ const signOutFailure = function () {
 
 const addDrinkSuccess = function () {
   $('#nav-message').text('Drink Added!')
+  $('#add-drink').hide()
   $('#add-drink')[0].reset('')
 }
 
