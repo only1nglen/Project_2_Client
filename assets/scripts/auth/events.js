@@ -44,7 +44,7 @@ const onAddDrink = function (event) {
   const form = event.target
   const data = getFormFields(form)
   api.addDrink(data)
-    // .then(() => onGetDrink(event))
+    .then(() => api.getDrink())
     .then(ui.addDrinkSuccess)
     .catch(ui.addDrinkFailure)
 }
@@ -61,9 +61,7 @@ const onClearAdd = function () {
 
 const onGetDrink = function (event) {
   event.preventDefault()
-  const form = event.target
-  const data = getFormFields(form)
-  api.getDrink(data)
+  api.getDrink()
     .then(ui.getDrinkSuccess)
     .catch(ui.getDrinkFailure)
 }
@@ -77,10 +75,8 @@ const onClearList = function () {
 const onRemoveDrink = function (event) {
   event.preventDefault()
   const id = $(event.target).data('id')
-  // console.log(event, 'is remove event')
-  // console.log(id, 'is remove id')
   api.removeDrink(id)
-    // .then(() => onGetDrink(event))
+    .then(() => api.getDrink())
     .then(ui.removeDrinkSuccess)
     .catch(ui.removeDrinkFailure)
 }
@@ -89,7 +85,6 @@ const onUpdateDrink = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  // console.log(data, 'is data')
   api.updateDrink(data)
     .then(ui.updateDrinkSuccess)
     .catch(ui.updateDrinkFailure)
@@ -102,12 +97,8 @@ const onClearUpdate = function () {
 
 const onEdit = function (event) {
   $('#patch-drink').show()
-  // console.log(event, 'is event')
   // store.drinkId is used in api.js
   store.drinkId = $(event.target).data('id')
-  // store.drinkName = $(event.target).data('name')
-  // console.log(store.drinkName, 'drink name')
-  // console.log(store.drinkId, 'is drinkId')
 }
 
 const addHandlers = function () {

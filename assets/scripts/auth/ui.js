@@ -2,6 +2,7 @@
 
 const store = require('./../store.js')
 const showDrinksTemplate = require('./../templates/drink-listing.handlebars')
+// const api = require('./api')
 
 const signUpSuccess = function () {
   $('#nav-message').text('Successfully Signed Up!')
@@ -58,24 +59,13 @@ const signOutFailure = function () {
   $('#nav-message').text('Sign Out Failed!')
 }
 
-const addDrinkSuccess = function () {
-  $('#nav-message').text('Drink Added!')
-  $('#add-drink').hide()
-  $('#add-drink')[0].reset('')
-}
-
-const addDrinkFailure = function () {
-  $('#nav-message').text('Add Drink Fail!')
-}
-
 const getDrinkSuccess = function (data) {
-  // console.log(data.drinks.length, 'is data')
   if (data.drinks.length === 0) {
     $('#nav-message').text('You have no drinks, Add a Drink!')
     $('#add-drink').show()
   } else {
-    const showDrinksHtml = showDrinksTemplate({drinks: data.drinks})
-    $('.content').html(showDrinksHtml)
+    store.showDrinksHtml = showDrinksTemplate({drinks: data.drinks})
+    $('.content').html(store.showDrinksHtml)
     $('.clear-list').show()
     $('#nav-message').text('Your Drinks!')
     // console.log(data.drinks, 'is response')
@@ -86,7 +76,21 @@ const getDrinkFailure = function () {
   $('#nav-message').text('You have no Drinks!')
 }
 
-const removeDrinkSuccess = function () {
+const addDrinkSuccess = function (data) {
+  $('.content').html(showDrinksTemplate({drinks: data.drinks}))
+  $('.clear-list').show()
+  $('#add-drink').hide()
+  $('#add-drink')[0].reset('')
+  $('#nav-message').text('Drink Added!')
+}
+
+const addDrinkFailure = function () {
+  $('#nav-message').text('Add Drink Fail!')
+}
+
+const removeDrinkSuccess = function (data) {
+  $('.content').html(showDrinksTemplate({drinks: data.drinks}))
+  $('.clear-list').show()
   $('#nav-message').text('Dumped a Drink!')
 }
 
@@ -95,6 +99,7 @@ const removeDrinkFailure = function () {
 }
 
 const updateDrinkSuccess = function (response) {
+  $('.content').html(store.showDrinksHtml)
   $('#patch-drink').hide()
   $('#nav-message').text('Update Successful')
   $('#patch-drink')[0].reset('')
