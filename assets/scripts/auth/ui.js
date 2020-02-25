@@ -65,6 +65,8 @@ const getDrinkSuccess = function (data) {
     $('#add-drink').show()
   } else {
     store.showDrinksHtml = showDrinksTemplate({drinks: data.drinks})
+    // console.log(showDrinksTemplate({drinks: data.drinks}), 'showDrinksTemplate({drinks: data.drinks}')
+    // console.log(store.showDrinksHtml, 'store.showDrinksHtmlg')
     $('.content').html(store.showDrinksHtml)
     $('.clear-list').show()
     $('#nav-message').text('Your Drinks!')
@@ -77,7 +79,9 @@ const getDrinkFailure = function () {
 }
 
 const addDrinkSuccess = function (data) {
-  $('.content').html(showDrinksTemplate({drinks: data.drinks}))
+  // console.log(store.showDrinksHtml)
+  // $('.content').html(store.showDrinksHtml)
+  // $('.content').html(showDrinksTemplate({drinks: data.drinks}))
   $('.clear-list').show()
   $('#add-drink').hide()
   $('#add-drink')[0].reset('')
@@ -89,6 +93,7 @@ const addDrinkFailure = function () {
 }
 
 const removeDrinkSuccess = function (data) {
+  // console.log(store.showDrinksHtml)
   $('.content').html(showDrinksTemplate({drinks: data.drinks}))
   $('.clear-list').show()
   $('#nav-message').text('Dumped a Drink!')
@@ -99,7 +104,7 @@ const removeDrinkFailure = function () {
 }
 
 const updateDrinkSuccess = function (response) {
-  $('.content').html(store.showDrinksHtml)
+  // $('.content').html(store.showDrinksHtml)
   $('#patch-drink').hide()
   $('#nav-message').text('Update Successful')
   $('#patch-drink')[0].reset('')

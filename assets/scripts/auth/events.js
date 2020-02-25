@@ -45,6 +45,7 @@ const onAddDrink = function (event) {
   const data = getFormFields(form)
   api.addDrink(data)
     .then(() => api.getDrink())
+    .then(ui.getDrinkSuccess)
     .then(ui.addDrinkSuccess)
     .catch(ui.addDrinkFailure)
 }
@@ -86,6 +87,7 @@ const onUpdateDrink = function (event) {
   const form = event.target
   const data = getFormFields(form)
   api.updateDrink(data)
+    .then(() => api.getDrink())
     .then(ui.updateDrinkSuccess)
     .catch(ui.updateDrinkFailure)
 }
