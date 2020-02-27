@@ -15,7 +15,7 @@
 
 <body>
 
-  <!-- <nav class="navbar fixed-top navbar-dark bg-primary"> -->
+  <!-- <Auth Start> -->
   <nav>
     <div class='container'>
       <div class='row'>
@@ -72,13 +72,15 @@
       </div>
     </div>
   </nav>
+  <!-- <Auth End> -->
 
 <div class='container'>
   <div class='userface'>
+    <!-- <Drinks Start> -->
     <form id='get-drinks'>
       <fieldset>
         <input type='submit' value='Get Drinks!' />
-        <input type='button' class='clear-list' value='Clear Drinks!' />
+        <input type='button' class='clear-list-drinks' value='Clear Drinks!' />
       </fieldset>
     </form>
 
@@ -99,7 +101,7 @@
         <input class="field" name="drink[shop_name]" type='text' placeholder='Shop Name' required />
         <input class="field" name="drink[date]" type='date' placeholder='Date' required />
         <input type='submit' value='Drank!' />
-        <input type='button' class='clear-add' value='Cancel!' />
+        <input type='button' class='clear-add-drink' value='Cancel!' />
       </fieldset>
     </form>
 
@@ -115,12 +117,55 @@
         <input type='button' class='clear-update' value='Cancel!' />
       </fieldset>
     </form>
+
+<!-- <Drinks End> -->
+  <br>
+<!-- <Places Start> -->
+    <form id='get-places'>
+      <fieldset>
+        <input type='submit' value='Get Places to Go!' />
+        <input type='button' class='clear-list-places' value='Clear Places!' />
+      </fieldset>
+    </form>
+
+    <br>
+
+    <form id='add-place-button'>
+      <fieldset>
+        <button class="btn-add">Add a Place!</button>
+      </fieldset>
+    </form>
+
+    <br>
+
+    <form id='add-place'>
+      <fieldset>
+        <legend>Add Place!</legend>
+        <input class="field" name="places_to_go[name]" type='text' placeholder='Place Name' required />
+        <input type='submit' value='Add Place!' />
+        <input type='button' class='clear-add-place' value='Cancel!' />
+      </fieldset>
+    </form>
+
+    <br>
+
+    <form id='patch-place'>
+      <fieldset>
+        <legend>Update Place!</legend>
+        <input class="field" name="places_to_go[name]" type='text' placeholder='Place Name' required />
+        <input type='submit' value='Update!' />
+        <input type='button' class='clear-update' value='Cancel!' />
+      </fieldset>
+    </form>
+
+  <!-- <Places End> -->
+  </div>
   </div>
 
-  <br>
-
   <div class="content"></div>
-</div>
+  <div class="content-places"></div>
+
+
 
 </body>
 

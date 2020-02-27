@@ -17,6 +17,8 @@ const signUpFailure = function () {
 const signInSuccess = function (response) {
   $('#nav-message').text('Successfully Signed In!')
   store.user = response.user
+  $('#add-place').hide()
+  $('#patch-place').hide()
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#add-drink').hide()
@@ -24,7 +26,7 @@ const signInSuccess = function (response) {
   $('#change-password').show()
   $('#sign-out').show()
   $('.userface').show()
-  $('.clear-list').hide()
+  $('.clear-list-drinks').hide()
   // console.log(response)
 }
 
@@ -46,7 +48,7 @@ const signOutSuccess = function (response) {
   $('#nav-message').text('Successfully Signed Out')
   $('#sign-up').show()
   $('#sign-in').show()
-  $('.clear-list').hide()
+  $('.clear-list-drinks').hide()
   $('#change-password').hide()
   $('#sign-out').hide()
   $('#add-drink').show()
@@ -68,8 +70,10 @@ const getDrinkSuccess = function (data) {
     // console.log(showDrinksTemplate({drinks: data.drinks}), 'showDrinksTemplate({drinks: data.drinks}')
     // console.log(store.showDrinksHtml, 'store.showDrinksHtmlg')
     $('.content').html(store.showDrinksHtml)
-    $('.clear-list').show()
+    $('.clear-list-drinks').show()
     $('#nav-message').text('Your Drinks!')
+    $('.clear-list-places').hide()
+    $('#add-place').hide()
     // console.log(data.drinks, 'is response')
   }
 }
@@ -82,7 +86,7 @@ const addDrinkSuccess = function (data) {
   // console.log(store.showDrinksHtml)
   // $('.content').html(store.showDrinksHtml)
   // $('.content').html(showDrinksTemplate({drinks: data.drinks}))
-  $('.clear-list').show()
+  $('.clear-list-drinks').show()
   $('#add-drink').hide()
   $('#add-drink')[0].reset('')
   $('#nav-message').text('Drink Added!')
@@ -95,7 +99,7 @@ const addDrinkFailure = function () {
 const removeDrinkSuccess = function (data) {
   // console.log(store.showDrinksHtml)
   $('.content').html(showDrinksTemplate({drinks: data.drinks}))
-  $('.clear-list').show()
+  $('.clear-list-drinks').show()
   $('#nav-message').text('Dumped a Drink!')
 }
 

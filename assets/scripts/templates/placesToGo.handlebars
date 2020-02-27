@@ -1,0 +1,12 @@
+{{#each places_to_gos as |places_to_go|}}
+  <section data-id="{{places_to_gos.id}}">
+    <h6>Name:</h6>
+    <h4>
+      {{places_to_go.name}}
+    </h4>
+    <button class="btn btn-danger removePlace" data-id={{id}}>Remove</button>
+    <br>
+    <button class="btn updatePlace" data-id={{id}}>Edit</button>
+  </section>
+
+{{/each}}

@@ -70,7 +70,7 @@ const onGetDrink = function (event) {
 const onClearList = function () {
   $('.content').text('')
   $('#nav-message').text('')
-  $('.clear-list').hide()
+  $('.clear-list-drinks').hide()
 }
 
 const onRemoveDrink = function (event) {
@@ -110,11 +110,11 @@ const addHandlers = function () {
   $('#sign-out').on('submit', onSignOut)
   $('#add-drink').on('submit', onAddDrink)
   $('#get-drinks').on('submit', onGetDrink)
-  $('.clear-list').on('click', onClearList)
+  $('.clear-list-drinks').on('click', onClearList)
   $('.clear-update').on('click', onClearUpdate)
-  $('.clear-add').on('click', onClearAdd)
-  $('.content').on('click', '.remove', onRemoveDrink)
-  $('.content').on('click', '.update', onEdit)
+  $('.clear-add-drink').on('click', onClearAdd)
+  $('.content').on('click', '.removeDrink', onRemoveDrink)
+  $('.content').on('click', '.updateDrink', onEdit)
   $('#patch-drink').on('submit', onUpdateDrink)
   $('.userface').on('click', '#add', addADrink)
 }
