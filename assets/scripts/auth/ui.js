@@ -49,6 +49,7 @@ const signOutSuccess = function (response) {
   $('#sign-up').show()
   $('#sign-in').show()
   $('.clear-list-drinks').hide()
+  $('.clear-list-places').hide()
   $('#change-password').hide()
   $('#sign-out').hide()
   $('#add-drink').show()
@@ -73,7 +74,7 @@ const getDrinkSuccess = function (data) {
     $('.clear-list-drinks').show()
     $('#nav-message').text('Your Drinks!')
     $('.clear-list-places').hide()
-    $('#add-place').hide()
+    // $('#add-place').hide()
     // console.log(data.drinks, 'is response')
   }
 }
