@@ -19,6 +19,7 @@ const onAddPlace = function (event) {
 const addAPlace = function (event) {
   event.preventDefault()
   $('#add-place').show()
+  $('#patch-place').hide()
 }
 
 const onClearAdd = function () {
@@ -37,6 +38,8 @@ const onClearList = function () {
   $('.content').text('')
   $('#nav-message').text('')
   $('.clear-list-places').hide()
+  $('#add-place').hide()
+  $('#patch-place').hide()
 }
 
 const onRemovePlace = function (event) {
@@ -65,6 +68,7 @@ const onClearUpdate = function () {
 
 const onEdit = function (event) {
   $('#patch-place').show()
+  $('#add-place').hide()
   // store.placeId is used in api.js
   store.placeId = $(event.target).data('id')
 }

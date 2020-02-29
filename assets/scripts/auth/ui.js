@@ -100,6 +100,8 @@ const removeDrinkSuccess = function (data) {
   // console.log(store.showDrinksHtml)
   $('.content').html(showDrinksTemplate({drinks: data.drinks}))
   $('.clear-list-drinks').show()
+  $('#add-drink').hide()
+  $('#patch-drink').hide()
   $('#nav-message').text('Dumped a Drink!')
 }
 

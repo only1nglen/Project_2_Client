@@ -13,7 +13,7 @@ const getPlaceSuccess = function (data) {
     $('.clear-list-places').show()
     $('#nav-message').text('Your Places!')
     $('.clear-list-drinks').hide()
-    $('#add-drink').hide()
+    // $('#add-drink').hide()
     // console.log(data.places_to_gos, 'is response')
   }
 }
@@ -40,6 +40,7 @@ const removePlaceSuccess = function (data) {
   // console.log(store.showPlacesHtml)
   $('.content').html(showplacesToGoTemplate({places_to_gos: data.places_to_gos}))
   $('.clear-list-places').show()
+  $('#patch-place').hide()
   $('#nav-message').text('Removed a Place to Visit!')
 }
 

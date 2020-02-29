@@ -52,6 +52,7 @@ const onAddDrink = function (event) {
 
 const addADrink = function (event) {
   event.preventDefault()
+  $('#patch-drink').hide()
   $('#add-drink').show()
 }
 
@@ -71,6 +72,8 @@ const onClearList = function () {
   $('.content').text('')
   $('#nav-message').text('')
   $('.clear-list-drinks').hide()
+  $('#add-drink').hide()
+  $('#patch-drink').hide()
 }
 
 const onRemoveDrink = function (event) {
@@ -99,6 +102,7 @@ const onClearUpdate = function () {
 
 const onEdit = function (event) {
   $('#patch-drink').show()
+  $('#add-drink').hide()
   // store.drinkId is used in api.js
   store.drinkId = $(event.target).data('id')
 }
