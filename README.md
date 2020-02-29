@@ -31,10 +31,13 @@ In the beginning, it was overwhelming with how much freedom I had to make this a
 ### Unsolved Problems, Things to Do/Want to do
 
 * Styling needed
-* Recently updated drink is moved to last spot in list, have to click "Get Drinks" to refresh list on update and add drink.
-* Initially able to refresh list after creating and removing a drink from list. However, had trouble displaying messages correct messages for each action.
 * Bug with Add Drink. User is able to click in the open space next to the button still able to add drink.
-* Populate with existing real life bobashops with menu items. Drink or food. Have a rating system that can be used. Dump it for bad Drunk it for good
+* Populate with existing real life bobashops with menu items. Drink or food. Have a rating system that can be used.
+
+### Updates
+
+* Added in an option to add/make a list for Bobas Shops to vist.
+* The add/update forms are visible to allow users to reference the drinks list and shops list while adding or making changes to their entry.
 
 ## Images
 [Wireframe](https://imgur.com/quLy5QO)
