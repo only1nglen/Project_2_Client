@@ -40,4 +40,10 @@ In the beginning, it was overwhelming with how much freedom I had to make this a
 * The add/update forms are visible to allow users to reference the drinks list and shops list while adding or making changes to their entry.
 
 ## Images
-[Wireframe](https://imgur.com/quLy5QO)
+#### Wireframe
+
+![Wireframe](https://i.imgur.com/xFSpbfV.png)
+
+#### ERD
+
+![ERD](https://i.imgur.com/nNbVmho.png)
