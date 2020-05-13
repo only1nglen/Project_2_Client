@@ -6,9 +6,7 @@ curl "http://localhost:4741/sign-up" \
     "credentials": {
       "email": "'"${EMAIL}"'",
       "password": "'"${PASSWORD}"'",
-      "password_confirmation": "'"${PASSWORD}"'",
-      "first_name": "'"${FIRST}"'",
-      "last_name": "'"${LAST}"'"
+      "password_confirmation": "'"${PASSWORD}"'"
     }
   }'
 
