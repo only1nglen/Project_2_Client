@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-  background-color: #FDF780;
+  background-color: #fdf780;
 }
 
 h1 {
@@ -20,10 +20,14 @@ h1 {
   flex-direction: column;
 }
 
+.change-password {
+  order: 2;
+}
+
 .pw-signout {
-  // align-items: center;
   display: flex;
-  flex-direction: row;
+  order: 1;
+  width: auto;
 }
 
 .display-message {
