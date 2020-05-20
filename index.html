@@ -14,65 +14,95 @@
 </head>
 
 <body>
-
+  <h1>My Boba Story</h1>
   <!-- <Auth Start> -->
   <nav>
-    <div class='container'>
-      <div class='row'>
-        <div class="col-6">
-          <form id='sign-up'>
-            <fieldset>
-              <legend>Sign-Up!</legend>
-              <input class="field" name="credentials[email]" type='email' placeholder='Email' required />
-              <input class="field" name="credentials[password]" type='password' placeholder='Password' required />
-              <input class="field" name="credentials[password_confirmation]" type='password' placeholder='Confirm Password' required />
-              <input type='submit' value='Sign-Up!' />
-            </fieldset>
-          </form>
+    <!-- Sign in and Sign up -->
+    <div class='container auth'>
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="pills-signin-tab" data-toggle="pill" href="#pills-signin" role="tab" aria-controls="pills-signin" aria-selected="true">Sign-In!</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="pills-signup-tab" data-toggle="pill" href="#pills-signup" role="tab" aria-controls="pills-signup" aria-selected="false">Sign-Up</a>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-signin" role="tabpanel" aria-labelledby="pills-signin-tab">
+          <div>
+            <form id='sign-in' class='form-inline'>
+              <fieldset>
+                <!-- <legend>Sign-in!</legend> -->
+                <input class="form-control mb-2 mr-sm-2" name="credentials[email]" type='email' placeholder='Email' />
+                <input class="form-control mb-2 mr-sm-2" name="credentials[password]" type='password' placeholder='Password' />
+                <input class="btn btn-primary form-control mb-2 mr-sm-2" type='submit' value='Sign-in!' />
+              </fieldset>
+            </form>
+            <small class="form-text text-muted">Please do NOT use a real email and password. App is for demo purposes.</small>
+          </div>
         </div>
 
-        <div class="col-6">
-          <form id='sign-in'>
-            <fieldset>
-              <legend>Sign-in!</legend>
-              <input class="field" name="credentials[email]" type='email' placeholder='Email' />
-              <input class="field" name="credentials[password]" type='password' placeholder='Password' />
-              <input type='submit' value='Sign-in!' />
-            </fieldset>
-          </form>
+        <div class="tab-pane fade" id="pills-signup" role="tabpanel" aria-labelledby="pills-signup-tab">
+          <div>
+            <form id='sign-up' class='form-inline'>
+              <fieldset>
+                <!-- <legend>Sign-Up!</legend> -->
+                <input class="form-control mb-2 mr-sm-2" name="credentials[email]" type='email' placeholder='Email' required />
+                <input class="form-control mb-2 mr-sm-2" name="credentials[password]" type='password' placeholder='Password' required />
+                <input class="form-control mb-2 mr-sm-2" name="credentials[password_confirmation]" type='password' placeholder='Confirm Password' required />
+                <input class="btn btn-primary form-control mb-2 mr-sm-2" type='submit' value='Sign-Up!' />
+              </fieldset>
+            </form>
+            <small class="form-text text-muted">Please do NOT use a real email and password. App is for demo purposes.</small>
+          </div>
         </div>
-
-        <div class="col-4">
-          <form id='change-password'>
-            <fieldset>
-              <legend>Change Password</legend>
-              <input class="field" name="passwords[old]" type='password' placeholder='Old Password' />
-              <input class="field" name="passwords[new]" type='password' placeholder='New Password' />
-              <input type='submit' value='Change Password!' />
-            </fieldset>
-          </form>
-        </div>
-
-        <div class="col-4">
-          <form id='sign-out'>
-            <fieldset>
-              <legend>Sign Out!</legend>
-              <input type='submit' value='Sign Out!' />
-            </fieldset>
-          </form>
-        </div>
-
-        <div class="col-12 display-message">
-          <p id="nav-message"></p>
-        </div>
-
       </div>
     </div>
+    <!-- End of Sign in and Sign up -->
+
+    <!-- Start of Logged in User buttons -->
+    <div class='container logged-in'>
+      <div class='row'>
+        <div class='col'>
+          <form id='change-password' class='form-inline change-password'>
+            <fieldset>
+              <!-- <legend>Change Password</legend> -->
+              <input class="form-control mb-2 mr-sm-2" name="passwords[old]" type='password' placeholder='Old Password' />
+              <input class="form-control mb-2 mr-sm-2" name="passwords[new]" type='password' placeholder='New Password' />
+              <input class="btn btn-secondary form-control mb-2 mr-sm-2" type='submit' value='Change It!' />
+            </fieldset>
+          </form>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='col pw-signout'>
+          <div>
+            <button type="button" class="btn btn-secondary showChangePwBtn ">Change Password</button>
+          </div>
+
+          <div>
+            <form id='sign-out'>
+              <fieldset>
+                <input class='btn btn-danger' type='submit' value='Sign Out!' />
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Logged in User buttons -->
   </nav>
   <!-- <Auth End> -->
 
+  <div class="col-12 display-message">
+    <p id="nav-message"></p>
+  </div>
+
   <div class='container'>
     <div class='userface'>
+
       <!-- <Drinks Start> -->
       <form id='get-drinks'>
         <fieldset>
@@ -160,14 +190,12 @@
   </div>
 
   <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="content"></div>
-      </div>
-    </div>
+    <!-- <div class="row"> -->
+    <!-- <div class="col-lg-12"> -->
+    <div class="content"></div>
+    <!-- </div> -->
+    <!-- </div> -->
   </div>
-
-
 
 </body>
 

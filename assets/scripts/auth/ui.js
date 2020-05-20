@@ -19,11 +19,10 @@ const signInSuccess = function (response) {
   store.user = response.user
   $('#add-place').hide()
   $('#patch-place').hide()
-  $('#sign-up').hide()
-  $('#sign-in').hide()
+  $('.auth').hide()
   $('#add-drink').hide()
   $('#sign-in')[0].reset('')
-  $('#change-password').show()
+  $('.showChangePwBtn').show()
   $('#sign-out').show()
   $('.userface').show()
   $('.clear-list-drinks').hide()
@@ -38,6 +37,7 @@ const signInFailure = function () {
 const changePasswordSuccess = function () {
   $('#nav-message').text('Password Successfully Changed!')
   $('#change-password')[0].reset('')
+  $('#change-password').hide()
 }
 
 const changePasswordFailure = function () {
@@ -46,8 +46,7 @@ const changePasswordFailure = function () {
 
 const signOutSuccess = function (response) {
   $('#nav-message').text('Successfully Signed Out')
-  $('#sign-up').show()
-  $('#sign-in').show()
+  $('.auth').show()
   $('.clear-list-drinks').hide()
   $('.clear-list-places').hide()
   $('#change-password').hide()
@@ -55,6 +54,7 @@ const signOutSuccess = function (response) {
   $('#add-drink').show()
   $('.userface').hide()
   $('#patch-drink').hide()
+  $('.showChangePwBtn').hide()
   $('.content').empty()
 }
 

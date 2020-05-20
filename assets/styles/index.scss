@@ -1,10 +1,34 @@
 @import '~bootstrap/scss/bootstrap';
 
+body {
+  background-color: #FDF780;
+}
+
+h1 {
+  text-align: center;
+}
+
+.auth {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.logged-in {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.pw-signout {
+  // align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
 .display-message {
-  border: 10px;
   display: flex;
   justify-content: center;
-
 }
 
 .content {

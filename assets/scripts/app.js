@@ -13,6 +13,7 @@ $(() => {
   $('#patch-drink').hide()
   $('#change-password').hide()
   $('#sign-out').hide()
+  $('.showChangePwBtn').hide()
   $('.userface').hide()
   $('#add-drink').hide()
   $('.clear-list-drinks').hide()

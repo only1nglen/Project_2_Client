@@ -108,8 +108,12 @@ const onEdit = function (event) {
 }
 
 const addHandlers = function () {
+  $('#pills-signup-tab').on('click', () => $('#nav-message').text(''))
+  $('#pills-signin-tab').on('click', () => $('#nav-message').text(''))
+  $('.showChangePwBtn').on('click', () => $('#nav-message').text(''))
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
+  $('.showChangePwBtn').click(() => $('#change-password').toggle())
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
   $('#add-drink').on('submit', onAddDrink)
