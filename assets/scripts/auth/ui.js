@@ -87,6 +87,7 @@ const addDrinkSuccess = function (data) {
   // console.log(store.showDrinksHtml)
   // $('.content').html(store.showDrinksHtml)
   // $('.content').html(showDrinksTemplate({drinks: data.drinks}))
+  $('#add-drink-modal').modal('toggle')
   $('.clear-list-drinks').show()
   $('#add-drink').hide()
   $('#add-drink')[0].reset('')
@@ -94,6 +95,7 @@ const addDrinkSuccess = function (data) {
 }
 
 const addDrinkFailure = function () {
+  $('#add-drink-modal').modal('toggle')
   $('#nav-message').text('Add Drink Fail!')
 }
 

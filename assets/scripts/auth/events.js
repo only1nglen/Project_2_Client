@@ -50,16 +50,16 @@ const onAddDrink = function (event) {
     .catch(ui.addDrinkFailure)
 }
 
-const addADrink = function (event) {
-  event.preventDefault()
-  $('#patch-drink').hide()
-  $('#add-drink').show()
-}
-
-const onClearAdd = function () {
-  $('#add-drink').hide()
-  $('#nav-message').text('')
-}
+// const addADrink = function (event) {
+//   event.preventDefault()
+//   $('#patch-drink').hide()
+//   $('#add-drink').show()
+// }
+//
+// const onClearAdd = function () {
+//   $('#add-drink').hide()
+//   $('#nav-message').text('')
+// }
 
 const onGetDrink = function (event) {
   event.preventDefault()
@@ -116,15 +116,21 @@ const addHandlers = function () {
   $('.showChangePwBtn').click(() => $('#change-password').toggle())
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
-  $('#add-drink').on('submit', onAddDrink)
+  // $('#add-drink').on('submit', onAddDrink)
+  $('#add-new-drink').on('submit', onAddDrink)
+  // Close modal after submit also in UI file
+  // $('#add-new-drink').submit(function (e) {
+  //   e.preventDefault()
+  //   $('#add-drink-modal').modal('toggle')
+  // })
   $('#get-drinks').on('submit', onGetDrink)
   $('.clear-list-drinks').on('click', onClearList)
   $('.clear-update').on('click', onClearUpdate)
-  $('.clear-add-drink').on('click', onClearAdd)
+  // $('.clear-add-drink').on('click', onClearAdd)
   $('.content').on('click', '.removeDrink', onRemoveDrink)
   $('.content').on('click', '.updateDrink', onEdit)
   $('#patch-drink').on('submit', onUpdateDrink)
-  $('.userface').on('click', '#add', addADrink)
+  // $('.userface').on('click', '#add', addADrink)
 }
 
 module.exports = {
