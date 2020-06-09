@@ -30,8 +30,7 @@ In the beginning, it was overwhelming with how much freedom I had to make this a
 
 ### Unsolved Problems, Things to Do/Want to do
 
-* Styling needed
-* Bug with Add Drink. User is able to click in the open space next to the button still able to add drink.
+* Styling to list of drinks and places.
 * Populate with existing real life bobashops with menu items. Drink or food. Have a rating system that can be used.
 
 ### Updates
