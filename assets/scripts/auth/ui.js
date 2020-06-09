@@ -22,7 +22,7 @@ const signInSuccess = function (response) {
   $('.auth').hide()
   $('#add-drink').hide()
   $('#sign-in')[0].reset('')
-  $('.showChangePwBtn').show()
+  $('.show-change-password-btn').show()
   $('#sign-out').show()
   $('.userface').show()
   $('.clear-list-drinks').hide()
@@ -54,7 +54,7 @@ const signOutSuccess = function (response) {
   $('#add-drink').show()
   $('.userface').hide()
   $('#patch-drink').hide()
-  $('.showChangePwBtn').hide()
+  $('.show-change-password-btn').hide()
   $('.content').empty()
 }
 
@@ -63,6 +63,7 @@ const signOutFailure = function () {
 }
 
 const getDrinkSuccess = function (data) {
+  console.log(data, 'get drink data')
   if (data.drinks.length === 0) {
     $('#nav-message').text('You have no drinks, Add a Drink!')
     $('#add-drink').show()
@@ -112,8 +113,11 @@ const removeDrinkFailure = function () {
   $('#nav-message').text('Could not Dump your Drink out!')
 }
 
-const updateDrinkSuccess = function (response) {
+const updateDrinkSuccess = function (data) {
+  console.log(data, ' update data')
   // $('.content').html(store.showDrinksHtml)
+  $('.content').html(showDrinksTemplate({drinks: data.drinks}))
+  $('#patch-drink-modal').modal('toggle')
   $('#patch-drink').hide()
   $('#nav-message').text('Update Successful')
   $('#patch-drink')[0].reset('')

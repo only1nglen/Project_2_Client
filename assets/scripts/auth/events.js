@@ -110,10 +110,10 @@ const onEdit = function (event) {
 const addHandlers = function () {
   $('#pills-signup-tab').on('click', () => $('#nav-message').text(''))
   $('#pills-signin-tab').on('click', () => $('#nav-message').text(''))
-  $('.showChangePwBtn').on('click', () => $('#nav-message').text(''))
+  $('.show-change-password-btn').on('click', () => $('#nav-message').text(''))
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
-  $('.showChangePwBtn').click(() => $('#change-password').toggle())
+  $('.show-change-password-btn').click(() => $('#change-password').toggle())
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
   // $('#add-drink').on('submit', onAddDrink)
@@ -127,8 +127,8 @@ const addHandlers = function () {
   $('.clear-list-drinks').on('click', onClearList)
   $('.clear-update').on('click', onClearUpdate)
   // $('.clear-add-drink').on('click', onClearAdd)
-  $('.content').on('click', '.removeDrink', onRemoveDrink)
-  $('.content').on('click', '.updateDrink', onEdit)
+  $('.content').on('click', '.destroy-drink-btn', onRemoveDrink)
+  $('.content').on('click', '.patch-drink-btn', onEdit)
   $('#patch-drink').on('submit', onUpdateDrink)
   // $('.userface').on('click', '#add', addADrink)
 }

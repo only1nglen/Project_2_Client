@@ -75,13 +75,13 @@ const onEdit = function (event) {
 
 const addHandlers = function () {
   $('#add-place-button').on('click', addAPlace)
-  $('#add-place').on('submit', onAddPlace)
+  $('#add-new-place').on('submit', onAddPlace)
   $('#get-places').on('submit', onGetPlace)
   $('.clear-list-places').on('click', onClearList)
   $('.clear-update').on('click', onClearUpdate)
   $('.clear-add-place').on('click', onClearAdd)
-  $('.content').on('click', '.removePlace', onRemovePlace)
-  $('.content').on('click', '.updatePlace', onEdit)
+  $('.content').on('click', '.remove-place', onRemovePlace)
+  $('.content').on('click', '.update-place', onEdit)
   $('#patch-place').on('submit', onUpdatePlace)
   // $('.userface').on('click', '#add', addAPlace)
 }

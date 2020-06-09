@@ -26,6 +26,7 @@ const addPlaceSuccess = function (data) {
   // console.log(store.showPlacesHtml)
   // $('.content').html(store.showPlacesHtml)
   // $('.content').html(showPlacesTemplate({places_to_gos: data.places_to_gos}))
+  $('#add-place-modal').modal('toggle')
   $('.clear-list-places').show()
   $('#add-place').hide()
   $('#add-place')[0].reset('')
@@ -48,8 +49,9 @@ const removePlaceFailure = function () {
   $('#nav-message').text('Could not Remove your Place to Visit!')
 }
 
-const updatePlaceSuccess = function (response) {
-  // $('.content').html(store.showPlacesHtml)
+const updatePlaceSuccess = function (data) {
+  $('.content').html(showplacesToGoTemplate({places_to_gos: data.places_to_gos}))
+  $('#patch-place-modal').modal('toggle')
   $('#patch-place').hide()
   $('#nav-message').text('Update Successful')
   $('#patch-place')[0].reset('')

@@ -61,7 +61,7 @@
     </div>
     <!-- End of Sign in and Sign up -->
 
-    <!-- Start of Logged in User buttons -->
+    <!-- Start of 'Logged in' User buttons -->
     <div class='container logged-in'>
       <div class='row change-password'>
         <!-- <div class='col'> -->
@@ -79,7 +79,7 @@
       <!-- <div class='row'> -->
       <div class='col pw-signout'>
         <div>
-          <button type="button" class="btn btn-secondary showChangePwBtn ">Change Password</button>
+          <button type="button" class="btn btn-secondary show-change-password-btn">Change Password</button>
         </div>
 
         <div>
@@ -108,8 +108,8 @@
       <div>
         <form id='get-drinks'>
           <fieldset>
-            <input type='submit' value='Get Drinks!' />
-            <input type='button' class='clear-list-drinks' value='Clear Drinks!' />
+            <input  class='btn btn-success' type='submit' value='Get Drinks!' />
+            <input type='button' class='clear-list-drinks btn btn-light' value='Clear Drinks!' />
           </fieldset>
         </form>
       </div>
@@ -190,34 +190,133 @@
 
       <br>
 
-      <div>
+      <!-- Add Drink Button trigger modal -->
+      <!-- <button type="button" class="btn btn-primary patch-drink-btn" data-toggle="modal" data-target="#patch-drink-modal">
+        Edit Drink
+      </button> -->
+
+      <!-- Start of Patch Drink Modal -->
+      <div class="modal fade" id="patch-drink-modal" tabindex="-1" role="dialog" aria-labelledby="patch-modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="patch-modal-title">Edit Drink</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-patch-drink-body">
+              <form id='patch-drink'>
+                <div class="form-group">
+                  <label for="drink-name" class="col-form-label">Drink Name</label>
+                  <input type="text" class="form-control" placeholder="Drink Name" name="drink[name]">
+                </div>
+
+                <div class="form-group">
+                  <label for="drink-shop-name" class="col-form-label">Boba Shop Name</label>
+                  <input type="text" class="form-control" placeholder="Boba Shop Name" name="drink[shop_name]">
+                </div>
+
+                <div class="form-group">
+                  <label for="drink-date" class="col-form-label">Date</label>
+                  <input type="date" class="form-control" placeholder="Date" name="drink[date]">
+                </div>
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Update Drink </button>
+              </form>
+            </div>
+
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" id='patch-drink-btn'>Edit Drink </button>
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+
+      <!-- End of Patch Drink modal -->
+
+      <!-- <div>
         <form id='patch-drink'>
           <fieldset>
             <legend>Update Drink!</legend>
             <input class="field" name="drink[name]" type='text' placeholder='Drink Name' required />
             <input class="field" name="drink[shop_name]" type='text' placeholder='Shop Name' required />
             <input class="field" name="drink[date]" type='date' placeholder='Date' required />
-            <input type='submit' value='Update!' />
-            <input type='button' class='clear-update' value='Cancel!' />
+            <input type='submit' class='btn btn-warning' value='Update!' />
+            <input type='button' class='btn btn-danger clear-update' value='Cancel!' />
           </fieldset>
         </form>
-      </div>
+      </div> -->
 
       <!-- <Drinks End> -->
       <br>
       <!-- <Places Start> -->
-      <div>
+      <!-- <div>
         <form id='get-places'>
           <fieldset>
             <input type='submit' value='Get Places to Go!' />
             <input type='button' class='clear-list-places' value='Clear Places!' />
           </fieldset>
         </form>
+      </div> -->
+
+      <div>
+        <form id='get-places'>
+          <fieldset>
+            <input  class='btn btn-success' type='submit' value='Get Places!' />
+            <input type='button' class='clear-list-places btn btn-light' value='Clear Places!' />
+          </fieldset>
+        </form>
       </div>
+
 
       <br>
 
-      <div>
+      <button type="button" class="btn btn-primary add-place-btn" data-toggle="modal" data-target="#add-place-modal">
+        Add a Place
+      </button>
+
+      <!-- Start of Add Drink Modal -->
+      <div class="modal fade" id="add-place-modal" tabindex="-1" role="dialog" aria-labelledby="add-place-modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="add-place-modal-title">Add a Place</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-place-body">
+              <form id='add-new-place'>
+                <div class="form-group">
+                  <label for="place-name" class="col-form-label">Place Name</label>
+                  <input type="text" class="form-control" placeholder="Place Name" name="places_to_go[name]">
+                </div>
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Add Place </button>
+              </form>
+            </div>
+
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" id='add-place-btn'>Add Place </button>
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+
+      <!-- End of add place modal -->
+
+
+
+      <!-- <div>
         <form id='add-place-button'>
           <fieldset>
             <button class="btn-add">Add a Place!</button>
@@ -236,20 +335,53 @@
             <input type='button' class='clear-add-place' value='Cancel!' />
           </fieldset>
         </form>
-      </div>
+      </div> -->
 
       <br>
 
-      <div>
+      <!-- Start of Patch Drink Modal -->
+      <div class="modal fade" id="patch-place-modal" tabindex="-1" role="dialog" aria-labelledby="patch-modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="patch-drink-modal-title">Edit Place</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-patch-place-body">
+              <form id='patch-place'>
+                <div class="form-group">
+                  <label for="place-name" class="col-form-label">Place Name</label>
+                  <input type="text" class="form-control" placeholder="Place Name" name="places_to_go[name]">
+                </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Update Place </button>
+              </form>
+            </div>
+
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" id='patch-place-btn'>Edit Drink </button>
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+
+      <!-- End of Patch Place modal -->
+
+      <!-- <div>
         <form id='patch-place'>
           <fieldset>
             <legend>Update Place!</legend>
             <input class="field" name="places_to_go[name]" type='text' placeholder='Place Name' required />
-            <input type='submit' value='Update!' />
+            <input type='submit' class='btn btn-warning' value='Update!' />
             <input type='button' class='clear-update' value='Cancel!' />
           </fieldset>
         </form>
-      </div>
+      </div> -->
 
       <!-- <Places End> -->
     </div>
