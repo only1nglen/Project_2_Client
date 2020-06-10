@@ -63,7 +63,7 @@ const signOutFailure = function () {
 }
 
 const getDrinkSuccess = function (data) {
-  console.log(data, 'get drink data')
+  // console.log(data, 'get drink data')
   if (data.drinks.length === 0) {
     $('#nav-message').text('You have no drinks, Add a Drink!')
     $('#add-drink').show()
@@ -114,7 +114,7 @@ const removeDrinkFailure = function () {
 }
 
 const updateDrinkSuccess = function (data) {
-  console.log(data, ' update data')
+  // console.log(data, ' update data')
   // $('.content').html(store.showDrinksHtml)
   $('.content').html(showDrinksTemplate({drinks: data.drinks}))
   $('#patch-drink-modal').modal('toggle')
