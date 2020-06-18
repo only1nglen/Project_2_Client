@@ -11,20 +11,8 @@ const onAddPlace = function (event) {
   const data = getFormFields(form)
   api.addPlace(data)
     .then(() => api.getPlace())
-    .then(ui.getPlaceSuccess)
     .then(ui.addPlaceSuccess)
     .catch(ui.addPlaceFailure)
-}
-
-const addAPlace = function (event) {
-  event.preventDefault()
-  $('#add-place').show()
-  $('#patch-place').hide()
-}
-
-const onClearAdd = function () {
-  $('#add-place').hide()
-  $('#nav-message').text('')
 }
 
 const onGetPlace = function (event) {
@@ -38,8 +26,6 @@ const onClearList = function () {
   $('.content').text('')
   $('#nav-message').text('')
   $('.clear-list-places').hide()
-  $('#add-place').hide()
-  $('#patch-place').hide()
 }
 
 const onRemovePlace = function (event) {
@@ -62,28 +48,22 @@ const onUpdatePlace = function (event) {
 }
 
 const onClearUpdate = function () {
-  $('#patch-place').hide()
   $('#nav-message').text('')
 }
 
 const onEdit = function (event) {
-  $('#patch-place').show()
-  $('#add-place').hide()
   // store.placeId is used in api.js
   store.placeId = $(event.target).data('id')
 }
 
 const addHandlers = function () {
-  $('#add-place-button').on('click', addAPlace)
   $('#add-new-place').on('submit', onAddPlace)
   $('#get-places').on('submit', onGetPlace)
   $('.clear-list-places').on('click', onClearList)
   $('.clear-update').on('click', onClearUpdate)
-  $('.clear-add-place').on('click', onClearAdd)
   $('.content').on('click', '.remove-place', onRemovePlace)
   $('.content').on('click', '.update-place', onEdit)
   $('#patch-place').on('submit', onUpdatePlace)
-  // $('.userface').on('click', '#add', addAPlace)
 }
 
 module.exports = {

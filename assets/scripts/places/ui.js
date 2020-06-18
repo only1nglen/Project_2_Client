@@ -1,20 +1,15 @@
-const store = require('./../store.js')
+'use strict'
+
 const showplacesToGoTemplate = require('./../templates/placesToGo.handlebars')
 
 const getPlaceSuccess = function (data) {
   if (data.places_to_gos.length === 0) {
     $('#nav-message').text('You have no Boba Shops Listed, Add a shop to visit next!')
-    $('#add-place').show()
   } else {
-    store.showPlacesHtml = showplacesToGoTemplate({places_to_gos: data.places_to_gos})
-    // console.log(showPlacesTemplate({places_to_gos: data.places_to_gos}), 'showPlacesTemplate({places_to_gos: data.places_to_gos}')
-    // console.log(store.showPlacesHtml, 'store.showPlacesHtmlg')
-    $('.content').html(store.showPlacesHtml)
+    $('.content').html(showplacesToGoTemplate({places_to_gos: data.places_to_gos}))
     $('.clear-list-places').show()
     $('#nav-message').text('Your Places!')
     $('.clear-list-drinks').hide()
-    // $('#add-drink').hide()
-    // console.log(data.places_to_gos, 'is response')
   }
 }
 
@@ -23,14 +18,11 @@ const getPlaceFailure = function () {
 }
 
 const addPlaceSuccess = function (data) {
-  // console.log(store.showPlacesHtml)
-  // $('.content').html(store.showPlacesHtml)
-  // $('.content').html(showPlacesTemplate({places_to_gos: data.places_to_gos}))
+  $('.content').html(showplacesToGoTemplate({places_to_gos: data.places_to_gos}))
   $('#add-place-modal').modal('toggle')
   $('.clear-list-places').show()
-  $('#add-place').hide()
-  $('#add-place')[0].reset('')
   $('#nav-message').text('Place Added!')
+  $('#add-new-place')[0].reset('')
 }
 
 const addPlaceFailure = function () {
@@ -38,10 +30,8 @@ const addPlaceFailure = function () {
 }
 
 const removePlaceSuccess = function (data) {
-  // console.log(store.showPlacesHtml)
   $('.content').html(showplacesToGoTemplate({places_to_gos: data.places_to_gos}))
   $('.clear-list-places').show()
-  $('#patch-place').hide()
   $('#nav-message').text('Removed a Place to Visit!')
 }
 
@@ -52,7 +42,6 @@ const removePlaceFailure = function () {
 const updatePlaceSuccess = function (data) {
   $('.content').html(showplacesToGoTemplate({places_to_gos: data.places_to_gos}))
   $('#patch-place-modal').modal('toggle')
-  $('#patch-place').hide()
   $('#nav-message').text('Update Successful')
   $('#patch-place')[0].reset('')
 }

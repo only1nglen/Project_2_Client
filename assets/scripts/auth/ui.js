@@ -1,8 +1,6 @@
 'use strict'
 
 const store = require('./../store.js')
-const showDrinksTemplate = require('./../templates/drink-listing.handlebars')
-// const api = require('./api')
 
 const signUpSuccess = function () {
   $('#nav-message').text('Successfully Signed Up!')
@@ -17,16 +15,12 @@ const signUpFailure = function () {
 const signInSuccess = function (response) {
   $('#nav-message').text('Successfully Signed In!')
   store.user = response.user
-  $('#add-place').hide()
-  $('#patch-place').hide()
   $('.auth').hide()
-  $('#add-drink').hide()
   $('#sign-in')[0].reset('')
   $('.show-change-password-btn').show()
   $('#sign-out').show()
   $('.userface').show()
   $('.clear-list-drinks').hide()
-  // console.log(response)
 }
 
 const signInFailure = function () {
@@ -51,80 +45,13 @@ const signOutSuccess = function (response) {
   $('.clear-list-places').hide()
   $('#change-password').hide()
   $('#sign-out').hide()
-  $('#add-drink').show()
   $('.userface').hide()
-  $('#patch-drink').hide()
   $('.show-change-password-btn').hide()
   $('.content').empty()
 }
 
 const signOutFailure = function () {
   $('#nav-message').text('Sign Out Failed!')
-}
-
-const getDrinkSuccess = function (data) {
-  // console.log(data, 'get drink data')
-  if (data.drinks.length === 0) {
-    $('#nav-message').text('You have no drinks, Add a Drink!')
-    $('#add-drink').show()
-  } else {
-    store.showDrinksHtml = showDrinksTemplate({drinks: data.drinks})
-    // console.log(showDrinksTemplate({drinks: data.drinks}), 'showDrinksTemplate({drinks: data.drinks}')
-    // console.log(store.showDrinksHtml, 'store.showDrinksHtmlg')
-    $('.content').html(store.showDrinksHtml)
-    $('.clear-list-drinks').show()
-    $('#nav-message').text('Your Drinks!')
-    $('.clear-list-places').hide()
-    // $('#add-place').hide()
-    // console.log(data.drinks, 'is response')
-  }
-}
-
-const getDrinkFailure = function () {
-  $('#nav-message').text('You have no Drinks!')
-}
-
-const addDrinkSuccess = function (data) {
-  // console.log(store.showDrinksHtml)
-  // $('.content').html(store.showDrinksHtml)
-  // $('.content').html(showDrinksTemplate({drinks: data.drinks}))
-  $('#add-drink-modal').modal('toggle')
-  $('.clear-list-drinks').show()
-  $('#add-drink').hide()
-  $('#add-drink')[0].reset('')
-  $('#nav-message').text('Drink Added!')
-}
-
-const addDrinkFailure = function () {
-  $('#add-drink-modal').modal('toggle')
-  $('#nav-message').text('Add Drink Fail!')
-}
-
-const removeDrinkSuccess = function (data) {
-  // console.log(store.showDrinksHtml)
-  $('.content').html(showDrinksTemplate({drinks: data.drinks}))
-  $('.clear-list-drinks').show()
-  $('#add-drink').hide()
-  $('#patch-drink').hide()
-  $('#nav-message').text('Dumped a Drink!')
-}
-
-const removeDrinkFailure = function () {
-  $('#nav-message').text('Could not Dump your Drink out!')
-}
-
-const updateDrinkSuccess = function (data) {
-  // console.log(data, ' update data')
-  // $('.content').html(store.showDrinksHtml)
-  $('.content').html(showDrinksTemplate({drinks: data.drinks}))
-  $('#patch-drink-modal').modal('toggle')
-  $('#patch-drink').hide()
-  $('#nav-message').text('Update Successful')
-  $('#patch-drink')[0].reset('')
-}
-
-const updateDrinkFailure = function () {
-  $('#nav-message').text('Could not edit your Drink!')
 }
 
 module.exports = {
@@ -135,13 +62,5 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure,
-  addDrinkSuccess,
-  addDrinkFailure,
-  getDrinkSuccess,
-  getDrinkFailure,
-  removeDrinkSuccess,
-  removeDrinkFailure,
-  updateDrinkSuccess,
-  updateDrinkFailure
+  signOutFailure
 }

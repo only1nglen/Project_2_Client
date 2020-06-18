@@ -1,6 +1,7 @@
 'use strict'
 
 const authEvents = require('./auth/events.js')
+const drinksEvents = require('./drinks/events.js')
 const placeEvents = require('./places/events.js')
 
 // use require with a reference to bundle the file and use it in this file
@@ -10,15 +11,14 @@ const placeEvents = require('./places/events.js')
 // require('./example')
 
 $(() => {
-  $('#patch-drink').hide()
+  $('.show-change-password-btn').hide()
   $('#change-password').hide()
   $('#sign-out').hide()
-  $('.show-change-password-btn').hide()
   $('.userface').hide()
-  $('#add-drink').hide()
   $('.clear-list-drinks').hide()
   $('.clear-list-places').hide()
   // your JS code goes here
   authEvents.addHandlers()
+  drinksEvents.addHandlers()
   placeEvents.addHandlers()
 })
