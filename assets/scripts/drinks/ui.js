@@ -8,7 +8,9 @@ const getDrinkSuccess = function (data) {
     $('#nav-message').text('You have no drinks, Add a Drink!')
   } else {
     // store.showDrinksHtml = showDrinksTemplate({drinks: data.drinks})
-    $('.content').html(showDrinksTemplate({drinks: data.drinks}))
+    const orderedDrinks = sortDrinks(data)
+    const showDrinksHtml = showDrinksTemplate({ drinks: orderedDrinks })
+    $('.content').html(showDrinksHtml)
     $('.clear-list-drinks').show()
     $('#nav-message').text('Your Drinks!')
     $('.clear-list-places').hide()
@@ -20,7 +22,9 @@ const getDrinkFailure = function () {
 }
 
 const addDrinkSuccess = function (data) {
-  $('.content').html(showDrinksTemplate({drinks: data.drinks}))
+  const orderedDrinks = sortDrinks(data)
+  const showDrinksHtml = showDrinksTemplate({ drinks: orderedDrinks })
+  $('.content').html(showDrinksHtml)
   // console.log(data.drinks, 'added drink')
   $('#add-drink-modal').modal('toggle')
   $('.clear-list-drinks').show()
@@ -35,7 +39,9 @@ const addDrinkFailure = function () {
 
 const removeDrinkSuccess = function (data) {
   // console.log(data.drinks, 'removed drink')
-  $('.content').html(showDrinksTemplate({drinks: data.drinks}))
+  const orderedDrinks = sortDrinks(data)
+  const showDrinksHtml = showDrinksTemplate({ drinks: orderedDrinks })
+  $('.content').html(showDrinksHtml)
   $('.clear-list-drinks').show()
   $('#nav-message').text('Dumped a Drink!')
 }
@@ -45,7 +51,9 @@ const removeDrinkFailure = function () {
 }
 
 const updateDrinkSuccess = function (data) {
-  $('.content').html(showDrinksTemplate({drinks: data.drinks}))
+  const orderedDrinks = sortDrinks(data)
+  const showDrinksHtml = showDrinksTemplate({ drinks: orderedDrinks })
+  $('.content').html(showDrinksHtml)
   // console.log(data.drinks, 'updated drink')
   $('#patch-drink-modal').modal('toggle')
   $('#nav-message').text('Update Successful')
@@ -54,6 +62,18 @@ const updateDrinkSuccess = function (data) {
 
 const updateDrinkFailure = function () {
   $('#nav-message').text('Could not edit your Drink!')
+}
+
+// function to sort the drinks because drinks were being placed to the end instead of original order
+const sortDrinks = function (data) {
+  const orderedDrinks = data.drinks.sort((drink1, drink2) => {
+    if (drink1.id < drink2.id) {
+      return -1
+    } else {
+      return 1
+    }
+  })
+  return orderedDrinks
 }
 
 module.exports = {
