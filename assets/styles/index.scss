@@ -4,10 +4,12 @@ body {
   background-color: #fdf780;
 }
 
+// Title
 h1 {
   color: #ab3bd1;
   text-align: center;
 }
+// Title
 
 .auth {
   align-items: center;
@@ -37,26 +39,25 @@ h1 {
   justify-content: center;
 }
 
-h6 {
-  color: #ab3bd1;
+.userface {
+  display: flex;
+  flex-direction: column;
 }
 
-h4 {
-  color: #469dbd;
+.drink-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.place-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .content {
   @include make-row;
-
-  // &:empty {
-  //   &::before {
-  //     color: lighten($info, 25%);
-  //     font-size: 8vh;
-  //     line-height: .85;
-  //     text-align: center;
-  //     width: 95%;
-  //   }
-  // }
 }
 
 section {
@@ -69,7 +70,6 @@ section {
   }
   background: #fdf780;
   border: 1px solid #ab3bd1;
-  margin: -1px;
   outline: none;
   padding: 1rem;
 
@@ -77,3 +77,13 @@ section {
     margin-bottom: 0;
   }
 }
+
+// Inside section
+h6 {
+  color: #ab3bd1;
+}
+
+h4 {
+  color: #469dbd;
+}
+// Inside section

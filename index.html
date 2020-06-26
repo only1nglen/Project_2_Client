@@ -33,7 +33,6 @@
           <div>
             <form id='sign-in' class='form-inline'>
               <fieldset>
-                <!-- <legend>Sign-in!</legend> -->
                 <input class="form-control mb-2 mr-sm-2" name="credentials[email]" type='email' placeholder='Email' />
                 <input class="form-control mb-2 mr-sm-2" name="credentials[password]" type='password' placeholder='Password' />
                 <input class="btn btn-primary form-control mb-2 mr-sm-2" type='submit' value='Sign-in!' />
@@ -47,7 +46,6 @@
           <div>
             <form id='sign-up' class='form-inline'>
               <fieldset>
-                <!-- <legend>Sign-Up!</legend> -->
                 <input class="form-control mb-2 mr-sm-2" name="credentials[email]" type='email' placeholder='Email' required />
                 <input class="form-control mb-2 mr-sm-2" name="credentials[password]" type='password' placeholder='Password' required />
                 <input class="form-control mb-2 mr-sm-2" name="credentials[password_confirmation]" type='password' placeholder='Confirm Password' required />
@@ -64,19 +62,15 @@
     <!-- Start of 'Logged in' User buttons -->
     <div class='container logged-in'>
       <div class='row change-password'>
-        <!-- <div class='col'> -->
         <form id='change-password' class='form-inline'>
           <fieldset>
-            <!-- <legend>Change Password</legend> -->
             <input class="form-control mb-2 mr-sm-2" name="passwords[old]" type='password' placeholder='Old Password' />
             <input class="form-control mb-2 mr-sm-2" name="passwords[new]" type='password' placeholder='New Password' />
             <input class="btn btn-secondary form-control mb-2 mr-sm-2" type='submit' value='Change It!' />
           </fieldset>
         </form>
-        <!-- </div> -->
       </div>
 
-      <!-- <div class='row'> -->
       <div class='col pw-signout'>
         <div>
           <button type="button" class="btn btn-secondary show-change-password-btn">Change Password</button>
@@ -90,7 +84,6 @@
           </form>
         </div>
       </div>
-      <!-- </div> -->
     </div>
     <!-- End of Logged in User buttons -->
   </nav>
@@ -100,15 +93,17 @@
     <p id="nav-message"></p>
   </div>
 
-  <div class='container'>
+  <div class='container userface'>
 
-    <div class='userface'>
+    <!-- <div class='userface'> -->
 
       <!-- <Drinks Start> -->
+      <div class="row drink-place-buttons">
+      <div class="col drink-buttons">
       <div>
         <form id='get-drinks'>
           <fieldset>
-            <input  class='btn btn-success' type='submit' value='Get Drinks!' />
+            <input class='btn btn-success' type='submit' value='Get Drinks!' />
             <input type='button' class='clear-list-drinks btn btn-light' value='Clear Drinks!' />
           </fieldset>
         </form>
@@ -116,10 +111,13 @@
 
       <br>
 
-      <!-- Add Drink Button trigger modal -->
-      <button type="button" class="btn btn-primary add-drink-btn" data-toggle="modal" data-target="#add-drink-modal">
-        Add a Drink
-      </button>
+      <!-- Start of Add Drink Trigger Button Modal -->
+      <div>
+        <button type="button" class="btn btn-primary add-drink-btn" data-toggle="modal" data-target="#add-drink-modal">
+          Add a Drink
+        </button>
+      </div>
+      <!-- End of Add Drink Trigger Button Modal -->
 
       <!-- Start of Add Drink Modal -->
       <div class="modal fade" id="add-drink-modal" tabindex="-1" role="dialog" aria-labelledby="add-drink-modal" aria-hidden="true">
@@ -162,8 +160,7 @@
           </div>
         </div>
       </div>
-
-      <!-- End of add drink modal -->
+      <!-- End of Add Drink Modal -->
 
       <br>
 
@@ -208,104 +205,110 @@
           </div>
         </div>
       </div>
-
       <!-- End of Patch Drink modal -->
 
+    </div>
+    <!-- </div> -->
       <!-- <Drinks End> -->
 
       <br>
 
+
       <!-- <Places Start> -->
+      <!-- <div class="row"> -->
+      <div class="col place-buttons">
       <div>
         <form id='get-places'>
           <fieldset>
-            <input  class='btn btn-success' type='submit' value='Get Places!' />
+            <input class='btn btn-success' type='submit' value='Get Places!' />
             <input type='button' class='clear-list-places btn btn-light' value='Clear Places!' />
           </fieldset>
         </form>
       </div>
 
-
       <br>
 
-      <button type="button" class="btn btn-primary add-place-btn" data-toggle="modal" data-target="#add-place-modal">
-        Add a Place
-      </button>
+      <!-- Start of Add Place Trigger Button modal -->
+      <div>
+        <button type="button" class="btn btn-primary add-place-btn" data-toggle="modal" data-target="#add-place-modal">
+          Add a Place
+        </button>
+      </div>
+      <!-- End of Add Place Trigger Button modal-->
 
-      <!-- Start of Add Drink Modal -->
-      <div class="modal fade" id="add-place-modal" tabindex="-1" role="dialog" aria-labelledby="add-place-modal" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="add-place-modal-title">Add a Place</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-
-            <div class="modal-place-body">
-              <form id='add-new-place'>
-                <div class="form-group">
-                  <label for="place-name" class="col-form-label">Place Name</label>
-                  <input type="text" class="form-control" placeholder="Place Name" name="places_to_go[name]">
+          <!-- Start of Add Place Modal -->
+          <div class="modal fade" id="add-place-modal" tabindex="-1" role="dialog" aria-labelledby="add-place-modal" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="add-place-modal-title">Add a Place</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Add Place </button>
-              </form>
-            </div>
+                <div class="modal-place-body">
+                  <form id='add-new-place'>
+                    <div class="form-group">
+                      <label for="place-name" class="col-form-label">Place Name</label>
+                      <input type="text" class="form-control" placeholder="Place Name" name="places_to_go[name]">
+                    </div>
 
-            <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add Place </button>
+                  </form>
+                </div>
+
+                <!-- <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-primary" id='add-place-btn'>Add Place </button>
             </div> -->
 
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+          <!-- End of add place modal -->
 
-      <!-- End of add place modal -->
+          <br>
 
-      <br>
-
-      <!-- Start of Patch Drink Modal -->
-      <div class="modal fade" id="patch-place-modal" tabindex="-1" role="dialog" aria-labelledby="patch-modal" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="patch-drink-modal-title">Edit Place</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-
-            <div class="modal-patch-place-body">
-              <form id='patch-place'>
-                <div class="form-group">
-                  <label for="place-name" class="col-form-label">Place Name</label>
-                  <input type="text" class="form-control" placeholder="Place Name" name="places_to_go[name]">
+          <!-- Start of Patch Drink Modal -->
+          <div class="modal fade" id="patch-place-modal" tabindex="-1" role="dialog" aria-labelledby="patch-modal" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="patch-drink-modal-title">Edit Place</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Update Place </button>
-              </form>
-            </div>
 
-            <!-- <div class="modal-footer">
+                <div class="modal-patch-place-body">
+                  <form id='patch-place'>
+                    <div class="form-group">
+                      <label for="place-name" class="col-form-label">Place Name</label>
+                      <input type="text" class="form-control" placeholder="Place Name" name="places_to_go[name]">
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update Place </button>
+                  </form>
+                </div>
+
+                <!-- <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-primary" id='patch-place-btn'>Edit Drink </button>
             </div> -->
 
+              </div>
+            </div>
           </div>
+          <!-- End of Patch Place modal -->
+        <!-- </div> -->
+      </div>
+          <!-- <Places End> -->
         </div>
       </div>
 
-      <!-- End of Patch Place modal -->
-
-      <!-- <Places End> -->
-    </div>
-  </div>
-
-  <div class="container">
+  <div class="container entries">
     <div class="content"></div>
   </div>
 
