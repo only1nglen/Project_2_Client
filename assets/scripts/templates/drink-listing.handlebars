@@ -1,24 +1,30 @@
 {{#each drinks as |drink|}}
   <section data-id="{{drink.id}}">
-    <h6>Name:</h6>
-    <h4>
-      {{drink.name}}
-    </h4>
-    <h6>Shop:</h6>
     <p>
-      {{#if drink.shop_name}}
-        {{drink.shop_name}}
-      {{else}}
-        Where is this place?
-      {{/if}}
+      <h6>Name:</h6>
+        <h4>
+          {{drink.name}}
+        </h4>
+    </p>
+    <p>
+      <h6>Shop:</h6>
+        <h4>
+          {{#if drink.shop_name}}
+            {{drink.shop_name}}
+          {{else}}
+            Where is this place?
+          {{/if}}
+        </h4>
     </p>
     <p>
       <h6>Date:</h6>
-      {{#if drink.date}}
-        {{drink.date}}
-      {{else}}
-        Don't Remember When
-      {{/if}}
+        <h4>
+          {{#if drink.date}}
+            {{drink.date}}
+          {{else}}
+            Don't Remember When
+          {{/if}}
+        </h4>
     </p>
     {{> partial-drinks }}
   </section>

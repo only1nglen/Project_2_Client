@@ -1,8 +1,12 @@
 {{#each places_to_gos as |places_to_go|}}
   <section data-id="{{places_to_gos.id}}">
-    <h6>Name:</h6>
+    <h6 class="place-name-heading">Name:</h6>
     <h4>
-      {{places_to_go.name}}
+      {{#if places_to_go.name}}
+        {{places_to_go.name}}
+      {{else}}
+        I'm gona stay at home
+      {{/if}}
     </h4>
     <button class="btn btn-danger remove-place" data-id={{id}}>Remove</button>
     <br>
