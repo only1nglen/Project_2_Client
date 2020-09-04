@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My Boba Story</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <h1>My Boba Story</h1>
+  <hr>
+  <!-- <Auth Start> -->
+
+  <!-- Sign in and Sign up -->
+  <div class='auth'>
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="pills-signin-tab" data-toggle="pill" href="#pills-signin" role="tab" aria-controls="pills-signin" aria-selected="true">Sign-In!</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="pills-signup-tab" data-toggle="pill" href="#pills-signup" role="tab" aria-controls="pills-signup" aria-selected="false">Sign-Up</a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-signin" role="tabpanel" aria-labelledby="pills-signin-tab">
+        <div class="sign-in-section">
+          <form id='sign-in'>
+            <fieldset>
+              <input class="form-control mb-2 mr-sm-2" name="credentials[email]" type='email' value='q@q' />
+              <input class="form-control mb-2 mr-sm-2" name="credentials[password]" type='password' value='1' />
+              <input class="btn btn-primary form-control mb-2 mr-sm-2" type='submit' value='Sign-in!' />
+            </fieldset>
+          </form>
+          <div>
+            Use this dummy account provided above or make a new Account.
+            <br>
+            Please keep password the same if changed.
+          </div>
+          <small class="form-text text-muted">Please do NOT use a real email and password. App is for demo purposes.</small>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="pills-signup" role="tabpanel" aria-labelledby="pills-signup-tab">
+        <div class="sign-up-section">
+          <form id='sign-up'>
+            <fieldset>
+              <input class="form-control mb-2 mr-sm-2" name="credentials[email]" type='email' placeholder='Email' required />
+              <input class="form-control mb-2 mr-sm-2" name="credentials[password]" type='password' placeholder='Password' required />
+              <input class="form-control mb-2 mr-sm-2" name="credentials[password_confirmation]" type='password' placeholder='Confirm Password' required />
+              <input class="btn btn-primary form-control mb-2 mr-sm-2" type='submit' value='Sign-Up!' />
+            </fieldset>
+          </form>
+          <small class="form-text text-muted">Please do NOT use a real email and password. App is for demo purposes.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of Sign in and Sign up -->
+
+  <!-- Start of 'Logged in' User buttons -->
+  <div class='user-menu'>
+    <div>
+      <button type="button" class="btn btn-secondary show-change-password-btn">Change Password</button>
+    </div>
+    <br>
+    <div>
+      <form id='change-password' class='form-inline'>
+        <fieldset>
+          <input class="form-control mb-2 mr-sm-2" name="passwords[old]" type='password' placeholder='Old Password' />
+          <input class="form-control mb-2 mr-sm-2" name="passwords[new]" type='password' placeholder='New Password' />
+          <input class="btn btn-secondary form-control mb-2 mr-sm-2" type='submit' value='Change It!' />
+        </fieldset>
+      </form>
+    </div>
+    <br>
+    <div>
+      <form id='sign-out'>
+        <fieldset>
+          <input class='btn btn-danger' type='submit' value='Sign Out!' />
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <!-- End of Logged in User buttons -->
+
+  <!-- <Auth End> -->
+
+  <div class="col-12 display-message">
+    <p id="message-to-user"></p>
+  </div>
+
+  <div class='user-content'>
+
+    <!-- <Drinks Start> -->
+    <div class="drink-place-buttons">
+      <div class="drink-buttons">
+        <div>
+          <form id='get-drinks'>
+            <fieldset>
+              <input class='btn btn-success' type='submit' value='Get Drinks!' />
+              <br>
+              <input type='button' class='clear-list-drinks btn btn-light' value='Clear Drinks!' />
+            </fieldset>
+          </form>
+        </div>
+
+        <br>
+
+        <!-- Start of Add Drink Trigger Button Modal -->
+        <div>
+          <button type="button" class="btn btn-primary add-drink-btn" data-toggle="modal" data-target="#add-drink-modal">
+            Add a Drink
+          </button>
+        </div>
+        <!-- End of Add Drink Trigger Button Modal -->
+
+        <!-- Start of Add Drink Modal -->
+        <div class="modal fade" id="add-drink-modal" tabindex="-1" role="dialog" aria-labelledby="add-drink-modal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="add-drink-modal-title">Add a Drink</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-drink-body">
+                <form id='add-new-drink'>
+                  <div class="form-group">
+                    <label for="drink-name" class="col-form-label">Drink Name</label>
+                    <input type="text" class="form-control" placeholder="Drink Name" name="drink[name]">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="drink-shop-name" class="col-form-label">Boba Shop Name</label>
+                    <input type="text" class="form-control" placeholder="Boba Shop Name" name="drink[shop_name]">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="drink-date" class="col-form-label">Date</label>
+                    <input type="date" class="form-control" placeholder="Date" name="drink[date]">
+                  </div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Add Drink </button>
+              </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+        <!-- End of Add Drink Modal -->
+
+        <br>
+
+        <!-- Start of Patch Drink Modal -->
+        <div class="modal fade" id="patch-drink-modal" tabindex="-1" role="dialog" aria-labelledby="patch-modal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="patch-modal-title">Edit Drink</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-patch-drink-body">
+                <form id='patch-drink'>
+                  <div class="form-group">
+                    <label for="drink-name" class="col-form-label">Drink Name</label>
+                    <input type="text" class="form-control" placeholder="Drink Name" name="drink[name]">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="drink-shop-name" class="col-form-label">Boba Shop Name</label>
+                    <input type="text" class="form-control" placeholder="Boba Shop Name" name="drink[shop_name]">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="drink-date" class="col-form-label">Date</label>
+                    <input type="date" class="form-control" placeholder="Date" name="drink[date]">
+                  </div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Update Drink </button>
+              </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+        <!-- End of Patch Drink modal -->
+      </div>
+      <!-- <Drinks End> -->
+
+      <br>
+
+      <!-- <Places Start> -->
+      <div class="place-buttons">
+        <div>
+          <form id='get-places'>
+            <fieldset>
+              <input class='btn btn-success' type='submit' value='Get Places!' />
+              <br>
+              <input type='button' class='clear-list-places btn btn-light' value='Clear Places!' />
+            </fieldset>
+          </form>
+        </div>
+
+        <br>
+
+        <!-- Start of Add Place Trigger Button modal -->
+        <div>
+          <button type="button" class="btn btn-primary add-place-btn" data-toggle="modal" data-target="#add-place-modal">
+            Add a Place
+          </button>
+        </div>
+        <!-- End of Add Place Trigger Button modal-->
+
+        <!-- Start of Add Place Modal -->
+        <div class="modal fade" id="add-place-modal" tabindex="-1" role="dialog" aria-labelledby="add-place-modal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="add-place-modal-title">Add a Place</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-place-body">
+                <form id='add-new-place'>
+                  <div class="form-group">
+                    <label for="place-name" class="col-form-label">Place Name</label>
+                    <input type="text" class="form-control" placeholder="Place Name" name="places_to_go[name]">
+                  </div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Add Place </button>
+              </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+        <!-- End of add place modal -->
+
+        <br>
+
+        <!-- Start of Patch Drink Modal -->
+        <div class="modal fade" id="patch-place-modal" tabindex="-1" role="dialog" aria-labelledby="patch-modal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="patch-drink-modal-title">Edit Place</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-patch-place-body">
+                <form id='patch-place'>
+                  <div class="form-group">
+                    <label for="place-name" class="col-form-label">Place Name</label>
+                    <input type="text" class="form-control" placeholder="Place Name" name="places_to_go[name]">
+                  </div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Edit Place </button>
+              </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+        <!-- End of Patch Place modal -->
+        <!-- <Places End> -->
+        </div>
+      </div>
+
+      <div class="entries">
+        <div class="content"></div>
+      </div>
+
+</body>
+
+</html>
