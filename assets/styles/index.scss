@@ -9,41 +9,30 @@ h1 {
   color: #ab3bd1;
   text-align: center;
 }
-// Title
 
+// Auth
 .auth {
   align-items: center;
   display: flex;
   flex-direction: column;
 }
 
-.logged-in {
-  align-items: center;
+.user-menu {
   display: flex;
   flex-direction: column;
-}
-
-.change-password {
-  order: 2;
-}
-
-.pw-signout {
-  display: flex;
-  order: 1;
-  width: auto;
+  align-items: center;
 }
 
 .display-message {
   color: #ab3bd1;
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-top:10px;
+  border: 1px red solid;
 }
 
-.userface {
-  display: flex;
-  flex-direction: column;
-}
-
+// // User's Content Drinks+Places
 .drink-buttons {
   display: flex;
   flex-direction: column;
@@ -86,4 +75,3 @@ h6 {
 h4 {
   color: #469dbd;
 }
-// Inside section

@@ -3,55 +3,47 @@
 const store = require('./../store.js')
 
 const signUpSuccess = function () {
-  $('#nav-message').text('Successfully Signed Up!')
+  $('#message-to-user').text('Successfully Signed Up!')
   $('#sign-up')[0].reset('')
 }
 
 const signUpFailure = function () {
-  $('#nav-message').text('Failed to Sign Up!')
+  $('#message-to-user').text('Failed to Sign Up!')
   $('#sign-up')[0].reset('')
 }
 
 const signInSuccess = function (response) {
-  $('#nav-message').text('Successfully Signed In!')
+  $('#message-to-user').text('Successfully Signed In!')
   store.user = response.user
-  $('.auth').hide()
   $('#sign-in')[0].reset('')
-  $('.show-change-password-btn').show()
-  $('#sign-out').show()
-  $('.userface').show()
-  $('.clear-list-drinks').hide()
+  $('.show-change-password-btn, #sign-out, .user-content').show()
+  $('.clear-list-drinks, .auth').hide()
 }
 
 const signInFailure = function () {
-  $('#nav-message').text('Failed to Sign In!')
+  $('#message-to-user').text('Failed to Sign In!')
   $('#sign-in')[0].reset('')
 }
 
 const changePasswordSuccess = function () {
-  $('#nav-message').text('Password Successfully Changed!')
+  $('#message-to-user').text('Password Successfully Changed!')
   $('#change-password')[0].reset('')
   $('#change-password').hide()
 }
 
 const changePasswordFailure = function () {
-  $('#nav-message').text('Failed to Change Password!')
+  $('#message-to-user').text('Failed to Change Password!')
 }
 
 const signOutSuccess = function (response) {
-  $('#nav-message').text('Successfully Signed Out')
+  $('#message-to-user').text('Successfully Signed Out')
   $('.auth').show()
-  $('.clear-list-drinks').hide()
-  $('.clear-list-places').hide()
-  $('#change-password').hide()
-  $('#sign-out').hide()
-  $('.userface').hide()
-  $('.show-change-password-btn').hide()
+  $('#change-password, #sign-out, .user-content, .show-change-password-btn, .clear-list-drinks, .clear-list-places').hide()
   $('.content').empty()
 }
 
 const signOutFailure = function () {
-  $('#nav-message').text('Sign Out Failed!')
+  $('#message-to-user').text('Sign Out Failed!')
 }
 
 module.exports = {

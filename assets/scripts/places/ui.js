@@ -23,50 +23,50 @@ const sortPlaces = function (data) {
 
 const getPlaceSuccess = function (data) {
   if (data.places_to_gos.length === 0) {
-    $('#nav-message').text('You have no Boba Shops Listed, Add a shop to visit next!')
+    $('#message-to-user').text('You have no Boba Shops Listed, Add a shop to visit next!')
   } else {
     displayPlaces(data)
     $('.clear-list-places').show()
-    $('#nav-message').text('Your Places!')
+    $('#message-to-user').text('Your Places!')
     $('.clear-list-drinks').hide()
   }
 }
 
 const getPlaceFailure = function () {
-  $('#nav-message').text('You have no Places!')
+  $('#message-to-user').text('You have no Places!')
 }
 
 const addPlaceSuccess = function (data) {
   displayPlaces(data)
   $('#add-place-modal').modal('toggle')
   $('.clear-list-places').show()
-  $('#nav-message').text('Place Added!')
+  $('#message-to-user').text('Place Added!')
   $('#add-new-place')[0].reset('')
 }
 
 const addPlaceFailure = function () {
-  $('#nav-message').text('Add Place Fail!')
+  $('#message-to-user').text('Add Place Fail!')
 }
 
 const removePlaceSuccess = function (data) {
   displayPlaces(data)
   $('.clear-list-places').show()
-  $('#nav-message').text('Removed a Place to Visit!')
+  $('#message-to-user').text('Removed a Place to Visit!')
 }
 
 const removePlaceFailure = function () {
-  $('#nav-message').text('Could not Remove your Place to Visit!')
+  $('#message-to-user').text('Could not Remove your Place to Visit!')
 }
 
 const updatePlaceSuccess = function (data) {
   displayPlaces(data)
   $('#patch-place-modal').modal('toggle')
-  $('#nav-message').text('Update Successful')
+  $('#message-to-user').text('Update Successful')
   $('#patch-place')[0].reset('')
 }
 
 const updatePlaceFailure = function () {
-  $('#nav-message').text('Could not edit your Place!')
+  $('#message-to-user').text('Could not edit your Place!')
 }
 
 module.exports = {

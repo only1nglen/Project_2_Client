@@ -24,7 +24,7 @@ const onGetDrink = function (event) {
 
 const onClearList = function () {
   $('.content').text('')
-  $('#nav-message').text('')
+  $('#message-to-user').text('')
   $('.clear-list-drinks').hide()
 }
 
@@ -48,7 +48,7 @@ const onUpdateDrink = function (event) {
 }
 
 const onClearUpdate = function () {
-  $('#nav-message').text('')
+  $('#message-to-user').text('')
 }
 
 const onEdit = function (event) {
@@ -57,15 +57,10 @@ const onEdit = function (event) {
 }
 
 const addHandlers = function () {
-  $('#pills-signup-tab').on('click', () => $('#nav-message').text(''))
-  $('#pills-signin-tab').on('click', () => $('#nav-message').text(''))
-  $('.show-change-password-btn').on('click', () => $('#nav-message').text(''))
+  $('#pills-signup-tab').on('click', () => $('#message-to-user').text(''))
+  $('#pills-signin-tab').on('click', () => $('#message-to-user').text(''))
+  $('.show-change-password-btn').on('click', () => $('#message-to-user').text(''))
   $('#add-new-drink').on('submit', onAddDrink)
-  // Close modal after submit also in UI file
-  // $('#add-new-drink').submit(function (e) {
-  //   e.preventDefault()
-  //   $('#add-drink-modal').modal('toggle')
-  // })
   $('#get-drinks').on('submit', onGetDrink)
   $('.clear-list-drinks').on('click', onClearList)
   $('.clear-update').on('click', onClearUpdate)

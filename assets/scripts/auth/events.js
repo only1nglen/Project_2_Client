@@ -39,9 +39,9 @@ const onSignOut = function (event) {
 }
 
 const addHandlers = function () {
-  $('#pills-signup-tab').on('click', () => $('#nav-message').text(''))
-  $('#pills-signin-tab').on('click', () => $('#nav-message').text(''))
-  $('.show-change-password-btn').on('click', () => $('#nav-message').text(''))
+  $('#pills-signup-tab').on('click', () => $('#message-to-user').text(''))
+  $('#pills-signin-tab').on('click', () => $('#message-to-user').text(''))
+  $('.show-change-password-btn').on('click', () => $('#message-to-user').text(''))
   $('.show-change-password-btn').click(() => $('#change-password').toggle())
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)

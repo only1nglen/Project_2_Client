@@ -24,7 +24,7 @@ const onGetPlace = function (event) {
 
 const onClearList = function () {
   $('.content').text('')
-  $('#nav-message').text('')
+  $('#message-to-user').text('')
   $('.clear-list-places').hide()
 }
 
@@ -48,7 +48,7 @@ const onUpdatePlace = function (event) {
 }
 
 const onClearUpdate = function () {
-  $('#nav-message').text('')
+  $('#message-to-user').text('')
 }
 
 const onEdit = function (event) {

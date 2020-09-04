@@ -11,12 +11,7 @@ const placeEvents = require('./places/events.js')
 // require('./example')
 
 $(() => {
-  $('.show-change-password-btn').hide()
-  $('#change-password').hide()
-  $('#sign-out').hide()
-  $('.userface').hide()
-  $('.clear-list-drinks').hide()
-  $('.clear-list-places').hide()
+  $('.show-change-password-btn, #change-password, #sign-out, .user-content, .clear-list-drinks, .clear-list-places').hide()
   // your JS code goes here
   authEvents.addHandlers()
   drinksEvents.addHandlers()
