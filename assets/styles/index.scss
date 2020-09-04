@@ -12,9 +12,9 @@ h1 {
 
 // Auth
 .auth {
-  align-items: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .user-menu {
@@ -27,26 +27,19 @@ h1 {
   color: #ab3bd1;
   display: flex;
   justify-content: center;
-  align-items: center;
   margin-top:10px;
-  border: 1px red solid;
 }
 
 // // User's Content Drinks+Places
-.drink-buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.place-buttons {
+.drink-place-buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-evenly;
 }
 
 .content {
   @include make-row;
+  margin:10px;
 }
 
 section {
